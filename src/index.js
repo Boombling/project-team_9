@@ -1,2 +1,2 @@
 import './styles.css';
-console.log('hi');
+import '../src/sass/main.scss';
