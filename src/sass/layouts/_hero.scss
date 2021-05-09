@@ -1,0 +1,138 @@
+.concert-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+
+    background-color: $black-color;
+
+  @media screen and (min-width: 320px) {
+    padding-top: 61px;
+    padding-left: 25px;
+    padding-bottom: 150px;
+    padding-right: 25px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 136px;
+    padding-left: 87px;
+    padding-bottom: 150px;
+    padding-right: 87px;
+    width: 100%;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 146px;
+    padding-left: 175px;
+    padding-bottom: 190px;
+    padding-right: 175px;
+    width: 100%;
+  }
+}
+
+.card__image {
+    margin-bottom: 5px;
+    
+  @media screen and (min-width: 320px) {
+    width: 128px;
+    height: 161px;
+}
+
+@media screen and (min-width: 768px) {
+    width: 180px;
+    height: 227px;
+}
+
+@media screen and (min-width: 1280px) {
+    width: 180px;
+    height: 227px;
+}
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+article.card {
+    
+
+    @media screen and (min-width: 320px) {
+       margin-right: 14px;
+       margin-bottom: 50px;
+    }
+    
+    @media screen and (min-width: 768px) {
+       margin-right: 27px;
+       margin-bottom: 58px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+       margin-right: 70px;
+       margin-bottom: 63px;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        article.card:nth-child(2n) {
+            margin-right: 0;
+         }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        &:nth-child(3n) {
+            margin-right: 0;
+         }
+    }
+    
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+        &:nth-child(4n) {
+            margin-right: 0;
+         }
+    }
+}
+
+.card__name {
+    font-size: 14px;
+    font-weight: 700;
+    color: $accent-color;
+
+    margin-bottom: 5px;
+
+    @media screen and (min-width: 320px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }    
+}
+
+.date {
+    font-weight: 400;
+    color: $text-color;  
+
+    margin-bottom: 5px;
+
+    @media screen and (min-width: 320px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }    
+}
+
+.place_of_location {
+    font-weight: 600;
+    color: $text-color;    
+
+    @media screen and (min-width: 320px) {
+        font-size: 14px;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }    
+}
