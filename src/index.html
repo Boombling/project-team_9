@@ -13,27 +13,156 @@
   <body>
     <section class="head-container">
       <header>
-          <h1>FIND BEST EVENTS <br>
-              AROUND THE WORLD</h1>
-              <input type="text">
-              <select name="select" size="1" id="">
-                <option value="s1"></option>
-                <option value="s2">Canada</option>
-                <option value="s3">Denmark</option>
-                <option value="s4">Poland</option>
-                <option value="s5">Israel</option>
-                <option value="s6">England</option>
-                <option value="s7">Ireland</option>
-                <option value="s8">France</option>
-                <option value="s9">Japan</option>
-                <option value="s10">China</option>
-                <option value="s11">Taiwan</option>
-              </select>
+        <div class="overlay">
+          <div class="header_logo"></div>
+            <h1 class="heder_title">
+              FIND BEST EVENTS <br />
+              AROUND THE WORLD
+            </h1>
+            <form class="search-form" id="search-form">
+              <input class="search" type="text" placeholder="Start searching" />
+              <div class="dropdown">
+                <span class="defolt_value">Choose country</span>
+                <div class="dropdown-content">
+                  <div class="counry">
+                    <p class="counry_list">
+                      <a href="" class="counry_link">Canada</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">Denmark</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">Poland</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">Israel</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">England</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">Ireland</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">France</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">Japan</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">China</a>
+                    </p>
+                    <p class="counry_list">
+                      <a href="" class="counry_link">Taiwan</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
       </header>
+
+
+  </section>
 <div class="container">
   <ul class="gallery">
     <!-- Список <li> с карточками изображений -->
   </ul>
-  </section>
+  <main>
+    <section class="concert-list">
+
+      <div class="concert-container">
+
+        <ul class="card-list js-list">
+
+          <li class={{card}}>
+            <article class="card">
+              <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image"/>
+              <div class="card__content">
+                <h2 class="card__name">Для прикладу</h2>
+                <p class="date">{{localDate}}</p>
+                <p class="place_of_location">{{place}}</p>
+               </div>
+            </article>
+          </li>
+
+          <li class={{card}}>
+            <article class="card">
+              <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image" />
+              <div class="card__content">
+                <h2 class="card__name">Для прикладу</h2>
+                <p class="date">{{localDate}}</p>
+                <p class="place_of_location">{{place}}</p>
+               </div>
+            </article>
+          </li>
+
+          <li class={{card}}>
+            <article class="card">
+              <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image" />
+              <div class="card__content">
+                <h2 class="card__name">Для прикладу</h2>
+                <p class="date">{{localDate}}</p>
+                <p class="place_of_location">{{place}}</p>
+               </div>
+            </article>
+          </li>
+
+            <li class={{card}}>
+            <article class="card">
+              <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image" />
+              <div class="card__content">
+                <h2 class="card__name">Для прикладу</h2>
+                <p class="date">{{localDate}}</p>
+                <p class="place_of_location">{{place}}</p>
+               </div>
+            </article>
+          </li>
+          
+          <li class={{card}}>
+            <article class="card">
+              <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image" />
+              <div class="card__content">
+                <h2 class="card__name">Для прикладу</h2>
+                <p class="date">{{localDate}}</p>
+                <p class="place_of_location">{{place}}</p>
+               </div>
+            </article>
+          </li>
+
+          <li class={{card}}>
+            <article class="card">
+              <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image" />
+              <div class="card__content">
+                <h2 class="card__name">Для прикладу</h2>
+                <p class="date">{{localDate}}</p>
+                <p class="place_of_location">{{place}}</p>
+               </div>
+            </article>
+          </li>
+          <!-- Список <li> з картками концертів -->
+        </ul>
+
+      </div>
+    </section>
+  </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__text">
+          © 2021 
+          <span class="footer__vertikal-line">|</span> 
+          All Rights Reserved
+          <span class="footer__vertikal-line">|</span>
+        </p>
+        <p class="footer__text">
+          Developed with
+          <span class="footer__text-icons ">♥</span>
+          by GoIT Students
+        </p>
+      </div>
+    </footer>
+
+
   </body>
 </html>
