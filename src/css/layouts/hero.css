@@ -1,4 +1,5 @@
 .concert-container {
+  min-width: 320px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -32,6 +33,9 @@
 
 .card__image {
   margin-bottom: 5px;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border: 1px solid coral;
 
   @media screen and (min-width: 320px) {
     width: 128px;
@@ -41,6 +45,7 @@
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 227px;
+    justify-content: center;
   }
 
   @media screen and (min-width: 1280px) {
@@ -56,7 +61,7 @@
   justify-content: center;
 }
 
-article.card {
+/* article.card {
   @media screen and (min-width: 320px) {
     margin-right: 14px;
     margin-bottom: 50px;
@@ -89,8 +94,66 @@ article.card {
       margin-right: 0;
     }
   }
+} */
+.card {
+  position: relative;
+  border: 1px solid grey;
+
+  @media screen and (min-width: 320px) {
+    margin-right: 10px;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 25px;
+    margin-bottom: 58px;
+  }
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+
+  /* @media screen and (min-width: 768px) and (max-width: 1279px) {
+        &:nth-of-type(3n+0) {
+            margin-right: 0;
+         }
+    } */
+  /* color: #ffffff; */
+  @media screen and (min-width: 320px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+/* .map-icon::before {
+  background-image: url(../images/icon/symbol-defs.svg#icon-vector-1);
+} */
+
+.box {
+  width: 109px;
+  height: 101px;
+
+  border: 1px solid rgba(220, 86, 197, 0.3);
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
+.box.position {
+  position: absolute;
+  z-index: 2;
+
+  @media screen and (min-width: 320px) {
+    top: -10px;
+    left: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: -14px;
+    left: 84px;
+  }
+}
 .card__name {
   font-size: 14px;
   font-weight: 700;
