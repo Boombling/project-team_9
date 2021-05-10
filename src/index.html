@@ -71,10 +71,14 @@
           <li class={{card}}>
             <article class="card">
               <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image"/>
+              <div class="box position"></div>
               <div class="card__content">
                 <h2 class="card__name">Для прикладу</h2>
                 <p class="date">{{localDate}}</p>
-                <p class="place_of_location">{{place}}</p>
+                <svg class="map-icon" width="6" height="9">
+                  <use href="./images/icon/symbol-defs.svg#icon-vector-1"></use>
+              </svg>
+                 <p class="place_of_location map-icon">{{place}}</p>
                </div>
             </article>
           </li>
@@ -82,10 +86,11 @@
           <li class={{card}}>
             <article class="card">
               <img src="./images/hero_mobile.jpg" alt={{name}} class="card__image" />
+              <div class="box position"></div>
               <div class="card__content">
                 <h2 class="card__name">Для прикладу</h2>
                 <p class="date">{{localDate}}</p>
-                <p class="place_of_location">{{place}}</p>
+                <p class="map-icon place_of_location ">{{place}}</p>
                </div>
             </article>
           </li>
