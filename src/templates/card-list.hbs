@@ -1,10 +1,18 @@
 {{#each this}}
-<div class="concert-list">
-    <img src="{{images}}" alt="{{name}}" class="image" />
-    <ul class="info-list">
-        <li>{{name}}</li>
-        <li>{{startDateTime}}</li>
-        <li>{{promoters}}</li>
-    </ul>
-</div>
+{{!-- <div class="concert-list"> --}}
+    <article class="card">
+
+        <img src="{{images.[0].url}}" alt="{{name}}" class="card__image" />
+        <div class="card__content">
+            <h2 class="card__name">{{name}}</h2>
+            <p class="date">{{dates.start.localDate}}</p>
+            <img src="../images/icon/Vector.png" alt="">
+            <p class="place_of_location">
+                {{_embedded.venues.[0].name}}
+            </p>
+        </div>
+    </article>
+
+    {{!--
+</div> --}}
 {{/each}}
