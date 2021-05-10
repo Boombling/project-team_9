@@ -1,26 +1,32 @@
 import EventsApiService from './services/services';
-import eventsCard from '../templates/card-list.hbs';
-
-const cardContainer = document.querySelector('.gallery');
+const cardEvent = document.querySelector('.gallery');
 const eventsApiService = new EventsApiService();
-// console.log(concertApiService);
+import eventsListTpl from '../templates/card-list.hbs'
+
+function onSearch() {
+ try {
+    fetchRefs();
+     
+ } catch (error) {
+    myError();
+ } 
+   
+  }
 
 
-function onSerch(e) {
-    try {
-        const response = eventsApiService.fetchEvents();
-        const render = renderEventsList(response);
-        return render;
-    }
-    catch {
-        onFetchError();
-    }
+onSearch()
+
+function renderEventList(list){
+    const renderEventCard = eventsListTpl(list);
+    cardEvent.innerHTML = renderEventCard;
+     if(!list.length){
+        myError();
 }
-function renderEventsList(embedded) {
-   cardContainer.insertAdjacentHTML('beforeend', eventsCard(embedded));
-}
-function onFetchError(error) {
-    console.log('ERROR')
 }
 
-onSerch()
+async function fetchRefs() {
+    const {_embedded} = await eventsApiService.fetchEvent();
+    renderEventList(_embedded.events);
+};
+
+
