@@ -1,5 +1,5 @@
 html {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 *,
@@ -34,6 +34,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+.container {
 /* .container {
   width: 100%;
   margin-left: auto;
@@ -55,6 +56,7 @@ img {
     padding-right: 175px;
     width: 100%;
   }
+}
 } */
 p {
   margin: 0;
