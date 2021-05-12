@@ -1,6 +1,7 @@
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
+import './components/modal'
 
 const refs = getRefs();
 

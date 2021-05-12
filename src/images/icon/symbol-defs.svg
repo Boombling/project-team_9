@@ -1,5 +1,5 @@
 <svg aria-hidden="true" style="position:absolute;width:0;height:0" xmlns="http://www.w3.org/2000/svg" overflow="hidden"><defs>
-    <symbol id="icon-close" viewBox="0 0 32 32"><path fill="var(--color1, #4c00fe)" d="M1.646 32a1.646 1.646 0 01-1.163-2.811L29.19.482a1.647 1.647 0 112.33 2.328L2.811 31.517c-.298.298-.71.482-1.165.483z"/><path fill="var(--color1, #4c00fe)" d="M30.355 32c-.422 0-.844-.16-1.165-.483L.483 2.81A1.646 1.646 0 112.81.481l28.707 28.708A1.645 1.645 0 0130.355 32z"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 32 32"><path d="M1.646 32a1.646 1.646 0 01-1.163-2.811L29.19.482a1.647 1.647 0 112.33 2.328L2.811 31.517c-.298.298-.71.482-1.165.483z"/><path d="M30.355 32c-.422 0-.844-.16-1.165-.483L.483 2.81A1.646 1.646 0 112.81.481l28.707 28.708A1.645 1.645 0 0130.355 32z"/></symbol>
     <symbol id="icon-ellipse_2" viewBox="0 0 32 32"><path d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z"/></symbol>
     <symbol id="icon-ellipse_4" viewBox="0 0 32 32"><path d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z"/></symbol>
     <symbol id="icon-ellipse_5" viewBox="0 0 32 32"><path d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z"/></symbol>
