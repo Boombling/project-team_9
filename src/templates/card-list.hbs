@@ -1,20 +1,22 @@
 {{#each this}}
+  {{! <div class="concert-list"> }}
   <article class='card'>
-    <div class = 'img-card'>
-<div class="img-container">
-    <img src='{{imag.url}}' alt='{{event.name}}' class='card__image' />
-    </div>
-    </div>
+
+    <img src='{{images.0.url}}' alt='{{name}}' class='card__image' />
     <div class='card__content'>
-      <h2 class='card__name'>{{event.name}}</h2>
+      <h2 class='card__name'>{{name}}</h2>
       <p class='date'>
-        {{event.dates.start.localDate}}</p>
+        {{dates.start.localDate}}
+      </p>
       <p class='place_of_location'>
           <span class='material-icons'>
           location_on
-        </span>
-        {{event.name}}
+          </span>
+        {{_embedded.venues.0.name}}
       </p>
     </div>
   </article>
+
+  {{!
+</div> }}
 {{/each}}
