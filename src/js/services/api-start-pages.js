@@ -3,7 +3,7 @@ const BASE_URL = 'https://app.ticketmaster.com';
 
 export default class EventsApiService {
   constructor() {
-    this.page = 1;
+    this.page = 3;
   }
 
   async fetchEvent() {
