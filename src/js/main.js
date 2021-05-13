@@ -1,3 +1,6 @@
+import './services/start-page';
+
+
 import EventsApiService from './services/services';
 const cardEvent = document.querySelector('.gallery');
 const eventsApiService = new EventsApiService();
