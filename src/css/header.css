@@ -113,12 +113,21 @@
 
 .counry_link {
   display: block;
-  width: 270px;
-  outline: none;
+  width: 100%;
+  /* outline: none; */
   text-decoration: none;
-  color: inherit;
-  padding-bottom: 1px;
-  padding-top: 1px;
+  background: inherit;
+  margin-bottom: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  color: #cccccc;
+  text-align: left;
 }
 .defolt_value {
   display: block;
@@ -138,10 +147,18 @@
   background-position-x: 228px, 23px;
 }
 
-.counry_list:hover,
-.counry_list:focus {
+.counry_link:hover,
+.counry_link:focus {
   background: #dc56c5;
   color: #ffffff;
+}
+
+.counry_link:hover,
+.counry_link:focus,
+.search:focus,
+.search:hover {
+  outline: 0;
+  outline-offset: 0;
 }
 
 .header_logo {
