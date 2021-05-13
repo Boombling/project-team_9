@@ -23,7 +23,7 @@ function renderEventList(list){
     const renderEventCard = eventsListTpl(list);
     cardEvent.innerHTML = renderEventCard;
      if(!list.length){
-        myError();
+      //   myError();
 }
 }
 

@@ -149,6 +149,7 @@ body {
   width: 128px;
   border-radius: 50px 0px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .img-container {
