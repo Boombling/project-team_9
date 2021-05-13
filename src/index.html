@@ -26,7 +26,11 @@
             AROUND THE WORLD
           </h1>
           <form class="search-form" id="search-form">
-            <input class="search" type="text" placeholder="Start searching" />
+            <input 
+              class="search" 
+              type="text" 
+              placeholder="Start searching"
+              name="query"/>
             <div class="dropdown">
               <span class="defolt_value">Choose country</span>
               <div class="dropdown-content">
@@ -203,5 +207,22 @@
         <div class="eyes"></div>
       </div>
     </div>
+
+<!-- MODAL  -->
+      
+    <div class="backdrop backdrop--hiden" data-backdrop>
+      <div class="modal">
+        <button data-close-modal type="button">
+          <svg class="close-icon">
+            <use href="./images/icon/symbol-defs.svg#icon-close"></use>
+          </svg>
+        </button>
+        <div class="js-modalTpl"></div>
+
+        <button class="modal-btn btn-more" type="button">MORE FROM THIS AUTHOR</button>
+      </div>
+
+    </div>
+
   </body>
 </html>
