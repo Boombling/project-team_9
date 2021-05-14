@@ -38,21 +38,13 @@ async function onSearch(e) {
      } catch (err){
         console.log(err);
       //   тут треба вивести помилку запиту fetch
-      
-     }
-     
- }
-
-
- // додав, щоб перевырити роботу пошуку, хто відповідає за цей функціонал замінете...
+    }
+}
+ 
  function renderEventList(events){
-   eventsMarkup(events)
+  refs.cardEvent.insertAdjacentHTML('beforeend', eventsListTpl(events));
     eventsApiService.incrementPage()
 }
-
-function eventsMarkup(events) {
-   refs.cardEvent.insertAdjacentHTML('beforeend', eventsListTpl(events));
- }
 
  function clearEvents() {
    refs.cardEvent.innerHTML = '';
@@ -60,29 +52,5 @@ function eventsMarkup(events) {
 
 
 
-// function onSearch() {
-//  try {
-//     fetchRefs();
-     
-//  } catch (error) {
-//     myError();
-//  } 
-   
-//   }
-
-// onSearch()
-
-// function renderEventList(list){
-//     const renderEventCard = eventsListTpl(list);
-//     cardEvent.innerHTML = renderEventCard;
-//      if(!list.length){
-//         myError();
-// }
-// }
-
-// async function fetchRefs() {
-//     const {_embedded} = await eventsApiService.fetchEvent();
-//     renderEventList(_embedded.events);
-// };
 
 

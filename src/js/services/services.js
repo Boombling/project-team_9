@@ -15,6 +15,7 @@ export default class EventsApiService {
     }
 
     const result = await rawResult.json();
+    this.incrementPage();
     
     // зразу повертаємо масив подій
     return result._embedded.events;
