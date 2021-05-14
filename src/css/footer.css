@@ -16,13 +16,6 @@
   background: #0e0e0e;
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
 .footer__text {
   font-family: 'Montserrat';
   font-style: normal;

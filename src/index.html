@@ -17,9 +17,9 @@
   </head>
 
   <body>
-    <section class="head-container">
-      <header>
-        <div class="overlay">
+    <header>
+      <div class="overlay">
+          <div class="head-container">
           <div class="header_logo"></div>
           <h1 class="heder_title">
             FIND BEST EVENTS <br />
@@ -36,43 +36,42 @@
               <div class="dropdown-content">
                 <div class="counry">
                   <p class="counry_list">
-                    <a href="" class="counry_link">Canada</a>
+                    <button class="counry_link">Canada</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">Denmark</a>
+                    <button class="counry_link">Denmark</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">Poland</a>
+                    <button class="counry_link">Poland</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">Israel</a>
+                    <button class="counry_link">Israel</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">England</a>
+                    <button class="counry_link">England</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">Ireland</a>
+                    <button class="counry_link">Ireland</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">France</a>
+                    <button class="counry_link">France</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">Japan</a>
+                    <button class="counry_link">Japan</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">China</a>
+                    <button class="counry_link">China</button>
                   </p>
                   <p class="counry_list">
-                    <a href="" class="counry_link">Taiwan</a>
+                    <button class="counry_link">Taiwan</button>
                   </p>
                 </div>
               </div>
             </div>
           </form>
         </div>
+      </div>
       </header>
-    </section>
-    <main class="">
       <section class="concert-list">
         <div class="concert-container">
           <div class="card-list js-list gallery">
@@ -80,114 +79,9 @@
           </div>
         </div>
       </section>
-    </main>
-    <main>
-      <section class="concert-list">
-        <div class="concert-container">
-          <ul class="card-list js-list">
-            <li class="{{card}}">
-              <article class="card">
-                <img
-                  src="./images/hero_mobile.jpg"
-                  alt="{{name}}"
-                  class="card__image"
-                />
-                <div class="box position"></div>
-                <div class="card__content">
-                  <h2 class="card__name">Для прикладу</h2>
-                  <p class="date">{{localDate}}</p>
-                  <svg class="map-icon" width="6" height="9">
-                    <use
-                      href="./images/icon/symbol-defs.svg#icon-vector-1"
-                    ></use>
-                  </svg>
-                  <p class="place_of_location map-icon">{{place}}</p>
-                </div>
-              </article>
-            </li>
 
-            <li class="{{card}}">
-              <article class="card">
-                <img
-                  src="./images/hero_mobile.jpg"
-                  alt="{{name}}"
-                  class="card__image"
-                />
-                <div class="box position"></div>
-                <div class="card__content">
-                  <h2 class="card__name">Для прикладу</h2>
-                  <p class="date">{{localDate}}</p>
-                  <p class="map-icon place_of_location">{{place}}</p>
-                </div>
-              </article>
-            </li>
-
-            <li class="{{card}}">
-              <article class="card">
-                <img
-                  src="./images/hero_mobile.jpg"
-                  alt="{{name}}"
-                  class="card__image"
-                />
-                <div class="card__content">
-                  <h2 class="card__name">Для прикладу</h2>
-                  <p class="date">{{localDate}}</p>
-                  <p class="place_of_location">{{place}}</p>
-                </div>
-              </article>
-            </li>
-
-            <li class="{{card}}">
-              <article class="card">
-                <img
-                  src="./images/hero_mobile.jpg"
-                  alt="{{name}}"
-                  class="card__image"
-                />
-                <div class="card__content">
-                  <h2 class="card__name">Для прикладу</h2>
-                  <p class="date">{{localDate}}</p>
-                  <p class="place_of_location">{{place}}</p>
-                </div>
-              </article>
-            </li>
-
-            <li class="{{card}}">
-              <article class="card">
-                <img
-                  src="./images/hero_mobile.jpg"
-                  alt="{{name}}"
-                  class="card__image"
-                />
-                <div class="card__content">
-                  <h2 class="card__name">Для прикладу</h2>
-                  <p class="date">{{localDate}}</p>
-                  <p class="place_of_location">{{place}}</p>
-                </div>
-              </article>
-            </li>
-
-            <li class="{{card}}">
-              <article class="card">
-                <img
-                  src="./images/hero_mobile.jpg"
-                  alt="{{name}}"
-                  class="card__image"
-                />
-                <div class="card__content">
-                  <h2 class="card__name">Для прикладу</h2>
-                  <p class="date">{{localDate}}</p>
-                  <p class="place_of_location">{{place}}</p>
-                </div>
-              </article>
-            </li>
-            <!-- Список <li> з картками концертів -->
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
+    <footer class="footer"> 
+      <div class="concert-list">
       <div class="container">
         <p class="footer__text">
           © 2021
@@ -200,6 +94,7 @@
           <span class="footer__text-icons">♥</span>
           by GoIT Students
         </p>
+      </div>
       </div>
     </footer>
     <div class="preloader">

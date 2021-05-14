@@ -1,3 +1,5 @@
+import './services/start-page';
+import createsDownloadList from './services/nev-render-list';
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
@@ -33,10 +35,12 @@ async function onSearch(e) {
       return
     }
 
-     await renderEventList(events)  
+    //  await renderEventList(events)
+     const newFetchEventList = createsDownloadList(events);
+     await renderEventList(newFetchEventList);
 
      } catch (err){
-        console.log(err);
+        // console.log(err);
       //   тут треба вивести помилку запиту fetch
       
      }
@@ -47,7 +51,7 @@ async function onSearch(e) {
  // додав, щоб перевырити роботу пошуку, хто відповідає за цей функціонал замінете...
  function renderEventList(events){
    eventsMarkup(events)
-    eventsApiService.incrementPage()
+   eventsApiService.incrementPage()
 }
 
 function eventsMarkup(events) {
@@ -58,31 +62,5 @@ function eventsMarkup(events) {
    refs.cardEvent.innerHTML = '';
  }
 
-
-
-// function onSearch() {
-//  try {
-//     fetchRefs();
-     
-//  } catch (error) {
-//     myError();
-//  } 
-   
-//   }
-
-// onSearch()
-
-// function renderEventList(list){
-//     const renderEventCard = eventsListTpl(list);
-//     cardEvent.innerHTML = renderEventCard;
-//      if(!list.length){
-//         myError();
-// }
-// }
-
-// async function fetchRefs() {
-//     const {_embedded} = await eventsApiService.fetchEvent();
-//     renderEventList(_embedded.events);
-// };
 
 
