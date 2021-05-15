@@ -74,28 +74,29 @@
       </header>
       <section class="concert-list">
         <div class="concert-container">
-          <div class="card-list js-list gallery">
+          <ul class="card-list js-list gallery">
             <!-- Список <li> с карточками изображений -->
-          </div>
+          </ul>
         </div>
       </section>
 
     <footer class="footer"> 
       <div class="concert-list">
-      <div class="container">
-        <p class="footer__text">
-          © 2021
-          <span class="footer__vertikal-line">|</span>
-          All Rights Reserved
-          <span class="footer__vertikal-line">|</span>
-        </p>
-        <p class="footer__text">
-          Developed with
-          <span class="footer__text-icons">♥</span>
-          by GoIT Students
-        </p>
+        <div class="container">
+          <p class="footer__text">
+            © 2021
+            <span class="footer__vertikal-line">|</span>
+            All Rights Reserved
+            <span class="footer__vertikal-line">|</span>
+          </p>
+          <p class="footer__text">
+            Developed with
+            <span class="footer__text-icons">♥</span>
+            by GoIT Students
+          </p>
+        </div>
       </div>
-      </div>
+
     </footer>
     <div class="preloader">
       <div class="head">
@@ -106,17 +107,18 @@
 <!-- MODAL  -->
       
     <div class="backdrop backdrop--hiden" data-backdrop>
-      <div class="modal">
-        <button data-close-modal type="button">
-          <svg class="close-icon">
-            <use href="./images/icon/symbol-defs.svg#icon-close"></use>
-          </svg>
-        </button>
-        <div class="js-modalTpl"></div>
-
-        <button class="modal-btn btn-more" type="button">MORE FROM THIS AUTHOR</button>
+      <div class="modal-container">
+        <div class="modal">
+          <button data-close-modal type="button">
+            <svg class="close-icon">
+              <use href="./images/icon/symbol-defs.svg#icon-close"></use>
+            </svg>
+          </button>
+          <div class="js-modalTpl"></div>
+  
+          <button class="modal-btn btn-more" type="button">MORE FROM THIS AUTHOR</button>
+        </div>
       </div>
-
     </div>
 
   </body>
