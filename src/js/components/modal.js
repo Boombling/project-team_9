@@ -40,15 +40,13 @@ refs.backdrop.addEventListener("click", logBackdropClick);
 
 function onOpenModal(event) {
   event.preventDefault();
-  const a = event.target;
-  const b = a.getAttribute("alt");
-  fetchEvent(b)
+    
+  if (event.target.nodeName === 'IMG') {
+    const resolv = event.target;
+    const resolvById = resolv.getAttribute("alt");
+    fetchEvent(resolvById)
     .then(renderE)
     .catch(onFetchError);
-  
-   
-  
-  if (event.target.nodeName === 'IMG') {
     refs.backdrop.classList.remove("backdrop--hiden");
     refs.body.classList.add('body-scroll-stop'); //стопорим скрол контента под модалкой
     window.addEventListener('keydown', onKeysPress); //- слушаем нажатие клавиш
