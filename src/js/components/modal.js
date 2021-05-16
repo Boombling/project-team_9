@@ -1,11 +1,3 @@
-// 1. !!Done!! Анимация появления модалки
-// 2. !!Done!! Разметка и стили модалки конкретного события
-// 3. !!Done!! Затемнение и размытие заднего фона при открытой модалке
-// 4. Логика подгрузки и отображения данных о событии в открытой модалке
-// 5. Размещение ссылок на событие в кнопках покупки билетов
-// 6. Логика подгрузки и отображения событий после нажатия на кнопку "More from this author"
-// 7. !!Done!! закрытия модалки при нажатии на крестик и за ее пределы
-// 8. !!Done!! створити розмітку модалки відразу на всі пристрої
 import modalTpl from '../../templates/modalTpl.hbs';
 // import EventApi from '../services/event-api';
 
@@ -15,7 +7,7 @@ const API_KEY = 'MMQ2M3AOTcNvFmVoIxNGUGotXqF5t9MP';
 const BASE_URL = 'https://app.ticketmaster.com';
 
 async function fetchEvent(id) {
-      const event = await fetch(`${BASE_URL}/discovery/v2/events/${id}.json?apikey=${API_KEY}`)
+     const event = await fetch(`${BASE_URL}/discovery/v2/events/${id}.json?apikey=${API_KEY}`)
      if (!event.ok) {
         throw event;
         }
@@ -25,7 +17,7 @@ async function fetchEvent(id) {
 }
 
 function renderE(events) {         
-    const event = modalTpl(events);
+  const event = modalTpl(events);
     refs.renderModal.innerHTML = event;
 }
 
@@ -46,19 +38,10 @@ refs.openModal.addEventListener("click", onOpenModal);
 refs.closeModalBtn.addEventListener("click", onCloseModal);
 refs.backdrop.addEventListener("click", logBackdropClick);
 
-// const modalMurkup = modalTpl(modalDraft);
-// console.log(modalMurkup)
-// refs.openModal.addEventListener("click", clickOnModal);
-// function clickOnModal(event) {
-  
-// }
-
 function onOpenModal(event) {
   event.preventDefault();
   const a = event.target;
-  // console.log(event.target);
   const b = a.getAttribute("alt");
-  console.log(b);
   fetchEvent(b)
     .then(renderE)
     .catch(onFetchError);
@@ -95,18 +78,3 @@ function onKeysPress(evt) {
   }
 
 }
-
-
-// const KEY = 'MMQ2M3AOTcNvFmVoIxNGUGotXqF5t9MP'
-
-// // https://app.ticketmaster.com/discovery/v2/events.json?apikey=CJGgy1qFXM68xhwsISckS3KXUJYNIlxV
-
-// const promise = fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=20&page=1&apikey=6lOpp5Vggq59Gw99EgHfgH1fvYexhNFu
-// `)
-// .then(response => {
-//   // console.log(response.json());
-//   return response.json();
-// })
-// .then(events => {
-//   console.log(events);
-// })
