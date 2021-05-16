@@ -2,12 +2,13 @@
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
 
     background: rgba(32, 13, 29, 0.6);
     backdrop-filter: blur(3px);
+    z-index: 100;
+    overflow-y: auto;
 
     opacity: 1;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -18,27 +19,38 @@
     pointer-events: none;
 }
 
+/* тормозим скролл под модалкой */
+.body-scroll-stop {
+    overflow-y: hidden;
+}
+    
+.modal-container {
+    width: 320px;
+    padding-left: 15px;
+    padding-right: 15px;
+}  
+
 .modal {
-    position: absolute;
-    top: 50%;
+    position: fixed;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, 5%) scale(1.1);
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 100px;
-    height: auto;
-
+    min-width: 270px;
     text-align: center;
 
     font-family: Montserrat;
     background-color: #FFF2FD;
     border-radius: 150px 0px;
+    z-index: 101;
 
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),;
 }
 
 .backdrop--hiden .modal {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 [data-close-modal]{
@@ -172,16 +184,17 @@ margin-bottom: 0;
 /* breack point 320px */
 
 @media screen and (min-width: 320px) {
-    /* контейнер видалити перед пушом */
-    .container {
+    
+    .modal-container {
         width: 320px;
-        /* padding-left: 15px;
-        padding-right: 15px; */
-    }    
+        padding-left: 15px;
+        padding-right: 15px;
+    }  
     
     .modal {
         width: 270px;
-    }     
+    }    
+
 }
 
 
@@ -189,15 +202,14 @@ margin-bottom: 0;
 
 @media screen and (min-width: 768px) {
     
-    /* контейнер видалити перед пушом */
-    .container {
-        width: 768px;        
+    .modal-container {
+        width: 768px;
         padding-left: 85px;
         padding-right: 85px;
     }
     
     .modal {
-        width: 600px;
+        width: 595px;
         padding-bottom: 56px;
         border-radius: 300px 0px;
     }   
@@ -244,9 +256,9 @@ margin-bottom: 0;
 /* breack point 768px */
 
 @media screen and (min-width: 1280px) {
-    /* контейнер видалити перед пушом */    
-    .container {
-        width: 1280px;        
+    
+    .modal-container {
+        width: 1280px;
         padding-left: 175px;
         padding-right: 175px;
     }

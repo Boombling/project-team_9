@@ -28,15 +28,20 @@ const modalMurkup = modalTpl(modalDraft);
 
 function onOpenModal(event) {
   event.preventDefault();  
-  refs.renderModal.innerHTML = modalMurkup; // рендерим модалку
-  refs.backdrop.classList.remove("backdrop--hiden");
-  window.addEventListener('keydown', onKeysPress); //- слушаем нажатие клавиш
+  // console.log(event.target.nodeName)
+  if(event.target.nodeName==='IMG'){
+    refs.renderModal.innerHTML = modalMurkup; // рендерим модалку
+    refs.backdrop.classList.remove("backdrop--hiden");
+    refs.body.classList.add('body-scroll-stop'); //стопорим скрол контента под модалкой
+    window.addEventListener('keydown', onKeysPress); //- слушаем нажатие клавиш
+  }
+  return
 }
 
 function onCloseModal(event) {
   refs.backdrop.classList.add("backdrop--hiden");
   window.removeEventListener('keydown', onKeysPress);
-
+  refs.body.classList.remove('body-scroll-stop')
 }
 
 function logBackdropClick(evt) {
