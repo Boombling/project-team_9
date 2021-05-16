@@ -6,16 +6,39 @@
 // 6. Логика подгрузки и отображения событий после нажатия на кнопку "More from this author"
 // 7. !!Done!! закрытия модалки при нажатии на крестик и за ее пределы
 // 8. !!Done!! створити розмітку модалки відразу на всі пристрої
-import modalTpl from '../../templates/modalTpl.hbs'
-import modalDraft from '../../../src/templates/modalDraft.json'
+import modalTpl from '../../templates/modalTpl.hbs';
+// import EventApi from '../services/event-api';
 
+// const eventApi = new EventApi();
+// console.log(eventApi);
+const API_KEY = 'MMQ2M3AOTcNvFmVoIxNGUGotXqF5t9MP';
+const BASE_URL = 'https://app.ticketmaster.com';
+
+async function fetchEvent(id) {
+      const event = await fetch(`${BASE_URL}/discovery/v2/events/${id}.json?apikey=${API_KEY}`)
+     if (!event.ok) {
+        throw event;
+        }
+    const response = await event.json();
+    console.log(response);
+    return response;
+}
+
+function renderE(events) {         
+    const event = modalTpl(events);
+    refs.renderModal.innerHTML = event;
+}
+
+function onFetchError(error) {
+    console.log('This event not found')
+}
 
 const refs = {
-    openModal: document.querySelector(".gallery"),
-    closeModalBtn: document.querySelector("[data-close-modal]"),
-    backdrop: document.querySelector("[data-backdrop]"),
-    body: document.querySelector('body'),
-    renderModal: document.querySelector(".js-modalTpl"),
+  openModal: document.querySelector(".gallery"),
+  closeModalBtn: document.querySelector("[data-close-modal]"),
+  backdrop: document.querySelector("[data-backdrop]"),
+  body: document.querySelector('body'),
+  renderModal: document.querySelector(".js-modalTpl"),
 };
 // console.log(refs.openModal)
 
@@ -23,14 +46,26 @@ refs.openModal.addEventListener("click", onOpenModal);
 refs.closeModalBtn.addEventListener("click", onCloseModal);
 refs.backdrop.addEventListener("click", logBackdropClick);
 
-const modalMurkup = modalTpl(modalDraft);
+// const modalMurkup = modalTpl(modalDraft);
 // console.log(modalMurkup)
+// refs.openModal.addEventListener("click", clickOnModal);
+// function clickOnModal(event) {
+  
+// }
 
 function onOpenModal(event) {
-  event.preventDefault();  
-  // console.log(event.target.nodeName)
-  if(event.target.nodeName==='IMG'){
-    refs.renderModal.innerHTML = modalMurkup; // рендерим модалку
+  event.preventDefault();
+  const a = event.target;
+  // console.log(event.target);
+  const b = a.getAttribute("alt");
+  console.log(b);
+  fetchEvent(b)
+    .then(renderE)
+    .catch(onFetchError);
+  
+   
+  
+  if (event.target.nodeName === 'IMG') {
     refs.backdrop.classList.remove("backdrop--hiden");
     refs.body.classList.add('body-scroll-stop'); //стопорим скрол контента под модалкой
     window.addEventListener('keydown', onKeysPress); //- слушаем нажатие клавиш
