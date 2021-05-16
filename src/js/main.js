@@ -4,6 +4,7 @@ import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
 import './components/modal';
+import './services/choose-country';
 import shortMarkUp from '../templates/pagination/shortPagination.hbs';
 import startMarkUp from '../templates/pagination/startPagination.hbs';
 import endMarkUp from '../templates/pagination/endPagination.hbs';
@@ -17,6 +18,8 @@ const ref = {
 
 
 const eventsApiService = new EventsApiService();
+import eventsListTpl from '../templates/card-list.hbs'
+import './chose-country'
 
 refs.searchInput.addEventListener('submit', onSearch);
 
