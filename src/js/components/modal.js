@@ -6,8 +6,32 @@
 // 6. Логика подгрузки и отображения событий после нажатия на кнопку "More from this author"
 // 7. !!Done!! закрытия модалки при нажатии на крестик и за ее пределы
 // 8. !!Done!! створити розмітку модалки відразу на всі пристрої
-import modalTpl from '../../templates/modalTpl.hbs'
-import modalDraft from '../../../src/templates/modalDraft.json'
+import modalTpl from '../../templates/modalTpl.hbs';
+// import EventApi from '../services/event-api';
+
+// const eventApi = new EventApi();
+// console.log(eventApi);
+const API_KEY = 'MMQ2M3AOTcNvFmVoIxNGUGotXqF5t9MP';
+const BASE_URL = 'https://app.ticketmaster.com';
+const id = 'G5vbZpIrDgevI';
+async function fetchEvent() {
+      const event = await fetch(`https://newsuperserver.herokuapp.com/${BASE_URL}/discovery/v2/events/${id}.json?apikey=${API_KEY}`)
+     if (!event.ok) {
+        throw event;
+        }
+    const response = await event.json();
+    console.log(response);
+    return response;
+}
+
+function renderE(events) {         
+    const event = modalTpl(events);
+    refs.renderModal.innerHTML = event;
+}
+
+function onFetchError(error) {
+    console.log('This event not found')
+}
 
 
 const refs = {
@@ -23,14 +47,15 @@ refs.openModal.addEventListener("click", onOpenModal);
 refs.closeModalBtn.addEventListener("click", onCloseModal);
 refs.backdrop.addEventListener("click", logBackdropClick);
 
-const modalMurkup = modalTpl(modalDraft);
+// const modalMurkup = modalTpl(modalDraft);
 // console.log(modalMurkup)
 
 function onOpenModal(event) {
   event.preventDefault();  
-  // console.log(event.target.nodeName)
+ fetchEvent()
+    .then(renderE)
+    .catch(onFetchError);
   if(event.target.nodeName==='IMG'){
-    refs.renderModal.innerHTML = modalMurkup; // рендерим модалку
     refs.backdrop.classList.remove("backdrop--hiden");
     refs.body.classList.add('body-scroll-stop'); //стопорим скрол контента под модалкой
     window.addEventListener('keydown', onKeysPress); //- слушаем нажатие клавиш
