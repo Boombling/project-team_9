@@ -9,6 +9,11 @@ import './services/choose-country';
 const refs = getRefs();
 
 const eventsApiService = new EventsApiService();
+<<<<<<< Updated upstream
+=======
+import eventsListTpl from '../templates/card-list.hbs'
+import './chose-country'
+>>>>>>> Stashed changes
 
 refs.searchInput.addEventListener('submit', onSearch);
 
