@@ -13,16 +13,7 @@
   justify-content: center;
   align-items: center;
   min-width: 320px;
-  padding-top: 30px;
-  padding-bottom: 30px;
   background: #0e0e0e;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 .footer__text {
@@ -70,10 +61,10 @@
   }
 }
 
-.footer {
+/* .footer {
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
 .footer__text {
   font-size: 16px;
   line-height: 19.5px;

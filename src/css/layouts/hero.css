@@ -32,6 +32,7 @@
 }
 
 .card__image {
+  cursor: pointer;
   margin-bottom: 5px;
   border-top-left-radius: 50%;
   border-bottom-right-radius: 50%;
