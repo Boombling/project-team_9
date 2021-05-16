@@ -7,39 +7,6 @@ import createsDownloadList from './nev-render-list.js';
 function onSearch() {
     try {
         fetchRefs();
-        getPage().then(result => {
-
-
-            const pageControlBody = new PageBlock(result);
-            pageControlBody.createPaginationBlock();
-            console.log(pageControlBody);
-
-            ref.pagination.addEventListener('click', (event) => {
-                const isButtonClick = event.target.classList.contains("page-button");
-                if (!isButtonClick) {
-                    return;
-                }
-                const targetPageNumber = Number(event.target.textContent);
-                if (targetPageNumber === pageControlBody.currentNumber) {
-                    return;
-                } else {
-                    pageControlBody.updateCurrentPage(event.target);
-                    if (pageControlBody.isShortList) {
-                        pageControlBody.updateCurrentNumber(targetPageNumber);
-                        return;
-                    } else {
-                        targetCheck(targetPageNumber, pageControlBody);
-                        pageControlBody.updatePagination();
-                        const newPageList = document.querySelectorAll('.page-button');
-                        pageControlBody.findCurrentPage(targetPageNumber, newPageList);
-                    }
-                }
-                nextEvents(pageControlBody.currentNumber);
-            });
-
-
-
-        })
 
     } catch (error) {}
 
