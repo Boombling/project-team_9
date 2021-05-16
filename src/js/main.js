@@ -3,7 +3,8 @@ import createsDownloadList from './services/nev-render-list';
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
-import './components/modal'
+import './components/modal';
+import './services/choose-country';
 
 const refs = getRefs();
 
