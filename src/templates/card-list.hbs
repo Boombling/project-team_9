@@ -2,7 +2,7 @@
 <li class='card'>
   <div class='img-card'>
     <div class="img-container">
-      <img src='{{imag.url}}' alt='{{event.name}}' class='card__image' />
+      <img src='{{imag.url}}' alt='{{event.id}}' class='card__image' />
     </div>
   </div>
   <div class='card__content'>
@@ -13,7 +13,7 @@
       <span class='material-icons'>
         location_on
       </span>
-      {{event.name}}
+      {{event._embedded.venues.[0].name}}
     </p>
   </div>
 </li>

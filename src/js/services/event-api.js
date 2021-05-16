@@ -2,7 +2,7 @@ const API_KEY = 'MMQ2M3AOTcNvFmVoIxNGUGotXqF5t9MP';
 const BASE_URL = 'https://app.ticketmaster.com';
 export default class eventApi {
     constructor() {
-        this.id = 'G5vbZpIrDgevI';
+        this.id = '';
     }
 
     async fetchEvent() {
@@ -13,5 +13,12 @@ export default class eventApi {
     const response = await event.json();
     console.log(response);
     return response;
-}
+    }
+    
+    get query() {
+        return this.id;
+    }
+    set guery(newQuery) {
+        this.id = newQuery;
+    }
 }
