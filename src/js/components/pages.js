@@ -5,7 +5,7 @@ import standardMarkUp from '../../templates/pagination/standardPagination.hbs';
 
 
 export default class BlockOfPages {
-    constructor(lastPage) {
+    constructor(lastPage, shortList) {
         this.pageBlock = document.querySelector('.pagination');
         this.changes = 0;
         this.pageList = [];
@@ -15,25 +15,25 @@ export default class BlockOfPages {
         this.currentNumber = 1;
         this.lastNumber = lastPage;
 
-        this.isShortList = this.lastPageNumber <= 7;
+        this.isShortList = shortList;
     }
 
 
-    updatePageList(start = 1, end = this.lastNumber) {
-        this.pageList.length = 0;
-        for (let i = start; i <= end; i += 1) {
+    updatePageList(start = 1, last = this.lastNumber) {
+        this.pageList = [];
+        for (let i = start; i <= last; i += 1) {
             this.pageList.push(i);
         }
     }
 
     updateCurrentPage(newPage) {
-        this.previousPage = this.currentPage;
-        this.currentPage = newPage;
-        this.currentPage.classList.add("current");
-        if (this.changes) {
+        if (this.changes > 0) {
+            this.previousPage = this.currentPage;
             this.previousPage.classList.remove('current');
         }
         this.changes += 1;
+        this.currentPage = newPage;
+        this.currentPage.classList.add("current");
 
     }
     findCurrentPage(targetNumber, newPageList) {
@@ -48,7 +48,7 @@ export default class BlockOfPages {
         this.currentNumber = newNumber;
     }
 
-    updateMarkUp(markUpType, needLastPage = false) {
+    updateMarkUp(markUpType, needLastPage) {
         if (needLastPage) {
             this.markUp = markUpType({ pageList: this.pageList, lastPage: this.lastNumber })
         } else {
@@ -61,6 +61,7 @@ export default class BlockOfPages {
         if (this.isShortList) {
             this.updatePageList();
             this.updateMarkUp(shortMarkUp, false);
+            console.log(this.markUp);
 
         } else {
             this.updatePageList(1, 5);

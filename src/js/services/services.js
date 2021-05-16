@@ -30,7 +30,7 @@ export default class EventsApiService {
         console.log(result);
 
         // зразу повертаємо масив pages
-        return result.page.totalPages;
+        return result.page.totalElements;
     }
     async fetchNextEvent() {
         const url = `${BASE_URL}/discovery/v2/events.json?size=20&keyword=${this.searchQuery}&page=${this.page}&apikey=${API_KEY}`;
