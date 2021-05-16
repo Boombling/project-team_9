@@ -4,11 +4,13 @@ import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
 import './components/modal'
+import startMarkUp from '../templates/pagination/startPagination.hbs';
+import endMarkUp from '../templates/pagination/endPagination.hbs';
+import standardMarkUp from '../templates/pagination/standardPagination.hbs';
+import PageBlock from './components/pages.js';
 //import './components/pagination';
 const refs = getRefs();
-const ref = {
-    pagination: document.querySelector('.pagination')
-}
+
 
 const eventsApiService = new EventsApiService();
 
@@ -43,7 +45,7 @@ async function onSearch(e) {
         await renderEventList(newFetchEventList);
 
         getPage().then(result => {
-            ref.pagination.innerHTML = '';
+            refs.pagination.innerHTML = '';
             if (result > 49) {
                 result = 49;
             }
@@ -51,7 +53,7 @@ async function onSearch(e) {
             pageControlBody.createPaginationBlock();
             console.log(pageControlBody);
 
-            ref.pagination.addEventListener('click', (event) => {
+            refs.pagination.addEventListener('click', (event) => {
                 const isButtonClick = event.target.classList.contains("page-button");
                 if (!isButtonClick) {
                     return;
@@ -101,11 +103,7 @@ function clearEvents() {
     refs.cardEvent.innerHTML = '';
 }
 
-import startMarkUp from '../templates/pagination/startPagination.hbs';
-import endMarkUp from '../templates/pagination/endPagination.hbs';
-import standardMarkUp from '../templates/pagination/standardPagination.hbs';
 
-import PageBlock from './components/pages.js';
 
 
 
@@ -128,7 +126,7 @@ getPage().then(result => {
     pageControlBody.createPaginationBlock();
     console.log(pageControlBody);
 
-    ref.pagination.addEventListener('click', (event) => {
+    refs.pagination.addEventListener('click', (event) => {
         const isButtonClick = event.target.classList.contains("page-button");
         if (!isButtonClick) {
             return;
