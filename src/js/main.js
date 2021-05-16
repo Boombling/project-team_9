@@ -45,11 +45,9 @@ async function onSearch(e) {
         await renderEventList(newFetchEventList);
 
         getPage().then(result => {
+            const pageNum = resultChecking(result)
             refs.pagination.innerHTML = '';
-            if (result > 49) {
-                result = 49;
-            }
-            const pageControlBody = new PageBlock(result);
+            const pageControlBody = new PageBlock(pageNum);
             pageControlBody.createPaginationBlock();
             console.log(pageControlBody);
 
@@ -118,11 +116,9 @@ async function getPage() {
     }
 }
 getPage().then(result => {
-    if (result > 49) {
-        result = 49;
-    }
+    const pageNum = resultChecking(result)
 
-    const pageControlBody = new PageBlock(result);
+    const pageControlBody = new PageBlock(pageNum);
     pageControlBody.createPaginationBlock();
     console.log(pageControlBody);
 
@@ -193,4 +189,18 @@ async function nextEvents(page) {
 
     }
 
+}
+
+function resultChecking(result) {
+    if (window.screen.availWidth >= 768 && window.screen.availWidth < 1280) {
+        result = Math.ceil(result / 21);
+    } else {
+        result = Math.ceil(result / 20);
+    }
+
+
+    if (result > 49) {
+        result = 49;
+    }
+    return result;
 }
