@@ -5,25 +5,26 @@ import eventsListTpl from '../../templates/card-list.hbs';
 import createsDownloadList from './nev-render-list.js';
 
 function onSearch() {
-    try {
-        fetchRefs();
+   try {
+      fetchRefs();
+       
+   } catch (error) {
+   } 
+     
+    }
+  
+  
+  onSearch()
+  
+  function renderEventList(list){
+      const renderEventCard = eventsListTpl(list);
+      cardEvent.innerHTML = renderEventCard;
+  }
+  
 
-    } catch (error) {}
-
-}
-
-
-onSearch()
-
-function renderEventList(list) {
-    const renderEventCard = eventsListTpl(list);
-    cardEvent.innerHTML = renderEventCard;
-}
-
-
-async function fetchRefs() {
-    const { _embedded } = await eventsApiService.fetchEvent();
-    const list = _embedded.events;
-    const newFetchEventList = createsDownloadList(list);
-    renderEventList(newFetchEventList);
-}
+  async function fetchRefs() {
+   const {_embedded} = await eventsApiService.fetchEvent();
+   const list =_embedded.events;
+   const newFetchEventList = createsDownloadList(list);
+   renderEventList(newFetchEventList);
+  }

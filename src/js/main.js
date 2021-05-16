@@ -61,11 +61,6 @@ async function onSearch(e) {
         // console.log(err);
         //   тут треба вивести помилку запиту fetch
 
-    }
-
-}
-
-
 // додав, щоб перевырити роботу пошуку, хто відповідає за цей функціонал замінете...
 function renderEventList(events) {
     eventsMarkup(events)
@@ -79,11 +74,6 @@ function eventsMarkup(events) {
 function clearEvents() {
     refs.cardEvent.innerHTML = '';
 }
-
-
-
-
-
 
 async function getPage() {
     try {
@@ -103,10 +93,6 @@ getPage().then(result => {
     console.log(pageControlBody);
 
     refs.pagination.addEventListener('click', onClick.bind(null, pageControlBody), false)
-
-
-
-
 })
 
 function onClick(pageControlBody, event) {
