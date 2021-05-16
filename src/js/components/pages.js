@@ -1,5 +1,12 @@
+import shortMarkUp from '../../templates/pagination/shortPagination.hbs';
+import startMarkUp from '../../templates/pagination/startPagination.hbs';
+import endMarkUp from '../../templates/pagination/endPagination.hbs';
+import standardMarkUp from '../../templates/pagination/standardPagination.hbs';
+
+
 export default class BlockOfPages {
     constructor(lastPage) {
+        this.pageBlock = document.querySelector('.pagination');
         this.changes = 0;
         this.pageList = [];
         this.markUp = '';
@@ -10,8 +17,6 @@ export default class BlockOfPages {
 
         this.isShortList = this.lastPageNumber <= 7;
     }
-
-
 
 
     updatePageList(start = 1, end = this.lastNumber) {
@@ -31,6 +36,14 @@ export default class BlockOfPages {
         this.changes += 1;
 
     }
+    findCurrentPage(targetNumber, newPageList) {
+        newPageList.forEach(item => {
+            if (item.textContent == targetNumber) {
+                this.updateCurrentPage(item);
+            }
+        })
+        this.updateCurrentNumber(targetNumber);
+    }
     updateCurrentNumber(newNumber) {
         this.currentNumber = newNumber;
     }
@@ -42,6 +55,39 @@ export default class BlockOfPages {
             this.markUp = markUpType([...this.pageList]);
         }
     }
+
+
+    createPaginationBlock() {
+        if (this.isShortList) {
+            this.updatePageList();
+            this.updateMarkUp(shortMarkUp, false);
+
+        } else {
+            this.updatePageList(1, 5);
+            this.updateMarkUp(startMarkUp, true);
+        }
+
+        this.setPaginationBlock();
+        const startPage = document.querySelector('.page-button');
+        this.updateCurrentPage(startPage);
+
+    }
+    clearPagination() {
+        this.pageBlock.innerHTML = '';
+    }
+
+    setPaginationBlock() {
+        this.pageBlock.insertAdjacentHTML('beforeend', this.markUp);
+    }
+
+    updatePagination() {
+        this.clearPagination();
+        this.setPaginationBlock();
+
+    }
+
+
+
 
 
 };
