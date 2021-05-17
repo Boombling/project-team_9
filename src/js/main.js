@@ -16,10 +16,7 @@ const ref = {
     pagination: document.querySelector('.pagination')
 }
 
-
 const eventsApiService = new EventsApiService();
-import eventsListTpl from '../templates/card-list.hbs'
-import './chose-country'
 
 refs.searchInput.addEventListener('submit', onSearch);
 
@@ -34,7 +31,6 @@ async function onSearch(e) {
             //   тут треба вивести помилку пошуку
             return
         }
-
         await eventsApiService.changePage(1);
 
         await clearEvents();
@@ -76,9 +72,9 @@ async function onSearch(e) {
         refs.cardEvent.insertAdjacentHTML('beforeend', eventsListTpl(events));
     }
 
-    // function clearEvents() {
-    //     refs.cardEvent.innerHTML = '';
-    // }
+    function clearEvents() {
+        refs.cardEvent.innerHTML = '';
+    }
     // getPage().then(result => {
     //     const pageNum = resultChecking(result)
     //     const shortList = pageNum <= 7 ? true : false;
@@ -90,29 +86,29 @@ async function onSearch(e) {
     //     refs.pagination.addEventListener('click', onClick.bind(null, pageControlBody), false)
     // })
 
-    // function onClick(pageControlBody, event) {
+    function onClick(pageControlBody, event) {
 
-    //     const isButtonClick = event.target.classList.contains("page-button");
-    //     if (!isButtonClick) {
-    //         return;
-    //     }
-    //     const targetPageNumber = Number(event.target.textContent);
-    //     if (targetPageNumber === pageControlBody.currentNumber) {
-    //         return;
-    //     } else {
-    //         pageControlBody.updateCurrentPage(event.target);
-    //         if (pageControlBody.isShortList) {
-    //             pageControlBody.updateCurrentNumber(targetPageNumber);
-    //         } else {
-    //             targetCheck(targetPageNumber, pageControlBody);
-    //             pageControlBody.updatePagination();
-    //             const newPageList = document.querySelectorAll('.page-button');
-    //             pageControlBody.findCurrentPage(targetPageNumber, newPageList);
-    //         }
-    //     }
-    //     nextEvents(pageControlBody.currentNumber);
-    //     console.log(pageControlBody.lastNumber, eventsApiService.query);
-    // }
+        const isButtonClick = event.target.classList.contains("page-button");
+        if (!isButtonClick) {
+            return;
+        }
+        const targetPageNumber = Number(event.target.textContent);
+        if (targetPageNumber === pageControlBody.currentNumber) {
+            return;
+        } else {
+            pageControlBody.updateCurrentPage(event.target);
+            if (pageControlBody.isShortList) {
+                pageControlBody.updateCurrentNumber(targetPageNumber);
+            } else {
+                targetCheck(targetPageNumber, pageControlBody);
+                pageControlBody.updatePagination();
+                const newPageList = document.querySelectorAll('.page-button');
+                pageControlBody.findCurrentPage(targetPageNumber, newPageList);
+            }
+        }
+        nextEvents(pageControlBody.currentNumber);
+        console.log(pageControlBody.lastNumber, eventsApiService.query);
+    }
 
 
     function targetCheck(targetNumber, pageControlBody) {
@@ -172,9 +168,9 @@ async function onSearch(e) {
 
         }
     }
-    function clearEvents() {
-        refs.cardEvent.innerHTML = '';
-    }
+    // function clearEvents() {
+    //     refs.cardEvent.innerHTML = '';
+    // }
     async function getPage() {
         try {
             const pageInfo = await eventsApiService.fetchPages();
