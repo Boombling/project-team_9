@@ -5,7 +5,6 @@ export default class EventsApiService {
     constructor() {
         this.page = 1;
     }
-
     async fetchEvent() {
         const url = `${BASE_URL}/discovery/v2/events.json?size=20&page=${this.page}&apikey=${API_KEY}`;
         const rawResult = await fetch(url);

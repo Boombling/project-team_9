@@ -5,10 +5,17 @@ import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
 import './components/modal';
 import getPage from './services/get-page.js';
-
+import './services/choose-country';
+import shortMarkUp from '../templates/pagination/shortPagination.hbs';
+import startMarkUp from '../templates/pagination/startPagination.hbs';
+import endMarkUp from '../templates/pagination/endPagination.hbs';
+import standardMarkUp from '../templates/pagination/standardPagination.hbs';
+import PageBlock from './components/pages.js';
 //import './components/pagination';
 const refs = getRefs();
-
+const ref = {
+    pagination: document.querySelector('.pagination')
+}
 
 const eventsApiService = new EventsApiService();
 
@@ -25,7 +32,6 @@ async function onSearch(e) {
             //   тут треба вивести помилку пошуку
             return
         }
-
         await eventsApiService.changePage(1);
 
         await clearEvents();
@@ -49,7 +55,6 @@ async function onSearch(e) {
     } catch (err) {
         // console.log(err);
         //   тут треба вивести помилку запиту fetch
-
     }
 
 }
