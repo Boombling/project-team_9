@@ -14,8 +14,7 @@ async function fetchCountryCode(countryCode) {
        }
    const response = await event.json();
    console.log(response);
-   return response._embedded.events
-   ;
+   return response._embedded.events;
 }
 
 // рендер списку концертів відповідно до країни
