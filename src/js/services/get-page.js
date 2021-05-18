@@ -15,7 +15,7 @@ const refs = getRefs();
 
 
 function targetCheck(targetNumber, pageControlBody) {
-    if (pageControlBody.isShortList) {
+    if (pageControlBody.lastNumber < 8) {
         return;
     }
     if (targetNumber >= 5 && targetNumber < pageControlBody.lastNumber - 2) {
@@ -49,6 +49,7 @@ async function nextEvents(eventsApiService, page) {
 
         //  await renderEventList(events)
         const newFetchEventList = createsDownloadList(events);
+        console.log(newFetchEventList)
         await renderEventList(newFetchEventList);
 
     } catch (err) {
@@ -92,20 +93,53 @@ function clearEvents() {
     refs.cardEvent.innerHTML = '';
 }
 
-export default async function getPage(eventsApiService) {
+export default async function getPage(eventsApiService, query, notListened) {
     try {
         const pageInfo = await eventsApiService.fetchPages();
         const pageNum = resultChecking(pageInfo)
-        const shortList = pageNum <= 7 ? true : false;
 
-        const pageControlBody = new PageBlock(pageNum, shortList);
+
+        const pageControlBody = new PageBlock(pageNum);
         pageControlBody.createPaginationBlock();
-        console.log(pageControlBody.isShortList);
+        eventsApiService.searchQuery = query;
+        console.log(eventsApiService.searchQuery)
 
-        refs.pagination.removeEventListener('click', onClick);
-        refs.pagination.addEventListener('click', onClick);
+        if (notListened) {
+            refs.pagination.addEventListener('click', onClick);
+        }
+
+
 
         function onClick(event) {
+
+            console.log(eventsApiService.searchQuery)
+            const isButtonClick = event.target.classList.contains("page-button");
+            if (!isButtonClick) {
+                return;
+            }
+            const targetPageNumber = Number(event.target.textContent);
+            if (targetPageNumber === pageControlBody.currentNumber) {
+                return;
+            }
+            pageControlBody.updateCurrentPage(event.target);
+            if (pageControlBody.lastNumber < 8) {
+                pageControlBody.updateCurrentNumber(targetPageNumber);
+            }
+            if (pageControlBody.lastNumber > 7) {
+
+                targetCheck(targetPageNumber, pageControlBody);
+                pageControlBody.updatePagination();
+                const newPageList = document.querySelectorAll('.page-button');
+                pageControlBody.findCurrentPage(targetPageNumber, newPageList);
+
+            }
+
+            nextEvents(eventsApiService, pageControlBody.currentNumber);
+
+
+        }
+
+        function onSearchClick(event) {
 
             const isButtonClick = event.target.classList.contains("page-button");
             if (!isButtonClick) {
@@ -116,10 +150,10 @@ export default async function getPage(eventsApiService) {
                 return;
             }
             pageControlBody.updateCurrentPage(event.target);
-            if (pageControlBody.isShortList) {
+            if (pageControlBody.lastNumber < 8) {
                 pageControlBody.updateCurrentNumber(targetPageNumber);
             }
-            if (!pageControlBody.isShortList) {
+            if (pageControlBody.lastNumber > 7) {
 
                 targetCheck(targetPageNumber, pageControlBody);
                 pageControlBody.updatePagination();
@@ -129,7 +163,7 @@ export default async function getPage(eventsApiService) {
             }
 
             nextEvents(eventsApiService, pageControlBody.currentNumber);
-            console.log(pageControlBody.isShortList);
+
 
         }
 

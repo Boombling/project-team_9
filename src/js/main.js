@@ -44,7 +44,7 @@ async function onSearch(e) {
         await renderEventList(newFetchEventList);
         refs.pagination.innerHTML = '';
 
-        getPage(eventsApiService)
+        getPage(eventsApiService, eventsApiService.query, false)
 
     } catch (err) {
         // console.log(err);
@@ -67,6 +67,7 @@ function eventsMarkup(events) {
 function clearEvents() {
     refs.cardEvent.innerHTML = '';
 }
+
 function fetchError(error) {
     showError('no results were found for this request')
 }

@@ -15,7 +15,7 @@ export default class BlockOfPages {
         this.currentNumber = 1;
         this.lastNumber = lastPage;
 
-        this.isShortList = shortList;
+
     }
 
 
@@ -58,7 +58,7 @@ export default class BlockOfPages {
 
 
     createPaginationBlock() {
-        if (this.isShortList) {
+        if (this.lastNumber < 8) {
             this.updatePageList();
             this.updateMarkUp(shortMarkUp, false);
             console.log(this.markUp);

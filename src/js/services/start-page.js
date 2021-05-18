@@ -1,4 +1,4 @@
-import EventsApiService from './api-start-pages.js';
+import EventsApiService from './services.js';
 const cardEvent = document.querySelector('.gallery');
 const eventsApiService = new EventsApiService();
 import eventsListTpl from '../../templates/card-list.hbs';
@@ -24,9 +24,9 @@ function renderEventList(list) {
 
 
 async function fetchRefs() {
-    const { _embedded } = await eventsApiService.fetchEvent();
-    const list = _embedded.events;
+
+    const list = await eventsApiService.fetchEvent({});
     const newFetchEventList = createsDownloadList(list);
     renderEventList(newFetchEventList);
-    getPage(eventsApiService);
+    getPage(eventsApiService, '', true);
 }
