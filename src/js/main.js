@@ -6,6 +6,8 @@ import getRefs from './refs/get-refs';
 import './components/modal';
 import getPage from './services/get-page.js';
 import './services/choose-country';
+import { showAlert, showError } from './components/pnotify';
+
 const refs = getRefs();
 
 const eventsApiService = new EventsApiService();
@@ -21,7 +23,7 @@ async function onSearch(e) {
 
         if (eventsApiService.query === '' || !eventsApiService.query.trim()) {
             //   тут треба вивести помилку пошуку
-            return
+            return fetchError(error);
         }
         // await eventsApiService.resetPage();
         await eventsApiService.changePage(1);
@@ -34,7 +36,7 @@ async function onSearch(e) {
         if (events.length === 0) {
             //   тут треба вивести помилку пошуку
 
-            return
+            return fetchError(error)
         }
 
         //  await renderEventList(events)
@@ -42,7 +44,7 @@ async function onSearch(e) {
         await renderEventList(newFetchEventList);
         refs.pagination.innerHTML = '';
 
-        getPage(eventsApiService);
+        getPage(eventsApiService)
 
     } catch (err) {
         // console.log(err);
@@ -65,3 +67,10 @@ function eventsMarkup(events) {
 function clearEvents() {
     refs.cardEvent.innerHTML = '';
 }
+function fetchError(error) {
+    showError('no results were found for this request')
+}
+
+// if  (.................) {
+//            return showAlert('displaying the result of your request');
+//             }
