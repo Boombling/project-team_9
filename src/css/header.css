@@ -29,8 +29,13 @@
 
   color: #dc56c5;
 }
+.search-form {
+  position: relative;
+  min-width: 270px;
+}
 
 .search {
+  
   display: block;
   width: 210px;
   height: 20px;
@@ -40,10 +45,7 @@
   margin-right: auto;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
-  background-image: url('../images/search.png');
-  background-position-x: 225px;
-  background-position-y: 50%;
-  background-repeat: no-repeat;
+ 
   border-radius: 20px;
   border: none;
   font-family: Montserrat;
@@ -54,6 +56,25 @@
 
   color: #939393;
 }
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+
+  position: absolute;
+  top: 20%;
+  right: 15px;
+
+  outline: none;
+  border: none;
+ 
+  background-image: url('../images/search.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
 
 .search_country_active {
   background-image: url('../images/polygon-2.png');
@@ -204,7 +225,15 @@
   }
 
   .search {
+    
     margin-right: 30px;
+  }
+
+  .search-icon {
+     
+    position: absolute;
+    top: 55%;
+    right: 20%;
   }
 
   .header_logo {
@@ -234,6 +263,16 @@
   .dropdown {
     margin-top: 52px;
   }
+
+  
+
+  .search-icon {
+     
+    position: absolute;
+    top: 67%;
+    right: 20%;
+  }
+
 
   .header_logo {
     background-image: url(../images/bg-logo-desctop.png);

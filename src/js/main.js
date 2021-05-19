@@ -53,8 +53,6 @@ async function onSearch(e) {
 
 }
 
-
-// додав, щоб перевырити роботу пошуку, хто відповідає за цей функціонал замінете...
 function renderEventList(events) {
     eventsMarkup(events)
 
