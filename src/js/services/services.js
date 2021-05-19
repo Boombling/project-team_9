@@ -53,7 +53,7 @@ export default class EventsApiService {
         } else {
             url = `${BASE_URL}/discovery/v2/events.json?size=${this.size}&keyword=${this.searchQuery}&page=${this.page}&apikey=${API_KEY}`;
         }
-        console.log(url);
+        // console.log(url);
         const rawResult = await fetch(url);
         if (!rawResult.ok) {
             throw rawResult;
