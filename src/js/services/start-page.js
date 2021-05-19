@@ -1,8 +1,8 @@
-import EventsApiService from './api-start-pages.js';
+import EventsApiService from './apiStartPages.js';
 const cardEvent = document.querySelector('.gallery');
 const eventsApiService = new EventsApiService();
 import eventsListTpl from '../../templates/card-list.hbs';
-import createsDownloadList from './nev-render-list.js';
+import createsDownloadList from './new-render-list.js';
 import getPage from './get-page.js';
 
 function onSearch() {

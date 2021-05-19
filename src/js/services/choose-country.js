@@ -1,5 +1,5 @@
 import eventsListTpl from '../../templates/card-list.hbs';
-import createsDownloadList from './nev-render-list';
+import createsDownloadList from './new-render-list';
 import getRefs from '../refs/get-refs';
 
 const refs = getRefs();
