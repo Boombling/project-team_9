@@ -32,13 +32,17 @@ async function onSearch(e) {
 
         const events = await eventsApiService.fetchEvent({})
         console.log(events);
-
-        if (events.length === 0) {
+        if (events.query === '') {
+            return showAlert('Specify your request')
+         }
+        if(!events.length) {
             //   тут треба вивести помилку пошуку
-
-            return fetchError(error)
+            return showError('no results were found for this request')
         }
+        
 
+      
+        
         //  await renderEventList(events)
         const newFetchEventList = createsDownloadList(events);
         await renderEventList(newFetchEventList);
@@ -46,9 +50,9 @@ async function onSearch(e) {
 
         getPage(eventsApiService)
 
-    } catch (err) {
-        // console.log(err);
-        //   тут треба вивести помилку запиту fetch
+    } catch (err) {        
+        fetchError()
+        // showAlert('Specify your request')
     }
 
 }
@@ -57,7 +61,7 @@ async function onSearch(e) {
 // додав, щоб перевырити роботу пошуку, хто відповідає за цей функціонал замінете...
 function renderEventList(events) {
     eventsMarkup(events)
-
+    
 }
 
 function eventsMarkup(events) {
@@ -68,9 +72,6 @@ function clearEvents() {
     refs.cardEvent.innerHTML = '';
 }
 function fetchError(error) {
+    
     showError('no results were found for this request')
 }
-
-// if  (.................) {
-//            return showAlert('displaying the result of your request');
-//             }
