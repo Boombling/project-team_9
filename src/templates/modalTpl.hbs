@@ -1,29 +1,33 @@
 <div class="hbs" id='{{id}}'>
   <div class="thumb" >
-    <img class="modal-icon" src="{{images.[3].url}}" alt='{{name}}'>
+    <div class="tumb_icon"></div>
+    <img class="modal-icon" src="{{miniImg}}" alt='{{events.name}}'>
+  </div>
   </div>
 
   <div class="modal-info">
     <div class="modal-img-thumb">
-      <img class="modal-img" src="{{images.[3].url}}" alt="{{name}}">
+      <div class="tumb-bigImg">
+      <img class="modal-img" src="{{bigImg}}" alt="{{events.name}}">
+      </div>
     </div>
     <ul class="modal-details">
       <li class="modal-item">
         <p class="modal-item__header">INFO</p>
-        <p class="modal-item__descr">{{info}}</p>
+        <p class="modal-item__descr">{{events.info}}</p>
       </li>
       <li class="modal-item">
         <p class="modal-item__header">WHEN</p>
-        <p class="modal-item__descr">{{dates.start.localDate}}<br>{{dates.start.localTime}} ({{dates.timezone}})</p>
+        <p class="modal-item__descr">{{events.dates.start.localDate}}<br>{{events.dates.start.localTime}} ({{dates.timezone}})</p>
       </li>
       <li class="modal-item">
         <p class="modal-item__header">WHERE</p>
-        <p class="modal-item__descr">{{_embedded.venues.[0].city.name}},
-          {{_embedded.venues.[0].country.name}}<br>{{_embedded.venues.[0].address.line1}}</p>
+        <p class="modal-item__descr">{{events._embedded.venues.[0].city.name}},
+          {{events._embedded.venues.[0].country.name}}<br>{{events._embedded.venues.[0].address.line1}}</p>
       </li>
       <li class="modal-item">
         <p class="modal-item__header">WHO</p>
-        <p class="modal-item__descr">{{name}}</p>
+        <p class="modal-item__descr">{{events.name}}</p>
       </li>
       <li class="modal-item">
         <p class="modal-item__header">PRICES</p>
