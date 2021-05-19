@@ -5,10 +5,18 @@ export default class EventsApiService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
+        this.size = 20;
+
     }
 
     async fetchEvent() {
-        const url = `${BASE_URL}/discovery/v2/events.json?keyword=${this.searchQuery}&apikey=${API_KEY}`;
+        let url = '';
+        if (this.searchQuery !== '') {
+            url = `${BASE_URL}/discovery/v2/events.json?size=${this.size}&keyword=${this.searchQuery}&apikey=${API_KEY}`;
+        } else {
+            url = `${BASE_URL}/discovery/v2/events.json?size=${this.size}&apikey=${API_KEY}`;
+        }
+
         const rawResult = await fetch(url);
         if (!rawResult.ok) {
             throw rawResult;
@@ -19,8 +27,14 @@ export default class EventsApiService {
         // зразу повертаємо масив подій
         return result._embedded.events;
     }
+
     async fetchPages() {
-        const url = `${BASE_URL}/discovery/v2/events.json?keyword=${this.searchQuery}&apikey=${API_KEY}`;
+        let url = '';
+        if (this.searchQuery !== '') {
+            url = `${BASE_URL}/discovery/v2/events.json?size=${this.size}&keyword=${this.searchQuery}&apikey=${API_KEY}`;
+        } else {
+            url = `${BASE_URL}/discovery/v2/events.json?size=${this.size}&apikey=${API_KEY}`;
+        }
         const rawResult = await fetch(url);
         if (!rawResult.ok) {
             throw rawResult;
@@ -33,8 +47,13 @@ export default class EventsApiService {
         return result.page.totalElements;
     }
     async fetchNextEvent() {
-        const url = `${BASE_URL}/discovery/v2/events.json?size=20&keyword=${this.searchQuery}&page=${this.page}&apikey=${API_KEY}`;
-        console.log(url);
+        let url = '';
+        if (this.searchQuery === '') {
+            url = `${BASE_URL}/discovery/v2/events.json?size=${this.size}&page=${this.page}&apikey=${API_KEY}`;
+        } else {
+            url = `${BASE_URL}/discovery/v2/events.json?size=${this.size}&keyword=${this.searchQuery}&page=${this.page}&apikey=${API_KEY}`;
+        }
+        // console.log(url);
         const rawResult = await fetch(url);
         if (!rawResult.ok) {
             throw rawResult;
@@ -45,9 +64,16 @@ export default class EventsApiService {
 
         // зразу повертаємо масив подій
         return result._embedded.events;
+
+    }
+    changeCountry(newCountry) {
+        this.countryCode = newCountry;
     }
     changePage(newPage) {
         this.page = newPage;
+    }
+    changeSize(newSize) {
+        this.size = newSize;
     }
 
 

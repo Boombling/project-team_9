@@ -17,7 +17,7 @@ export default class EventsApiService {
         return result;
     }
     async fetchPages() {
-        const url = `${BASE_URL}/discovery/v2/events.json?keyword=${this.searchQuery}&apikey=${API_KEY}`;
+        const url = `${BASE_URL}/discovery/v2/events.json?size=20&apikey=${API_KEY}`;
         const rawResult = await fetch(url);
         if (!rawResult.ok) {
             throw rawResult;
@@ -30,7 +30,7 @@ export default class EventsApiService {
         return result.page.totalElements;
     }
     async fetchNextEvent() {
-        const url = `${BASE_URL}/discovery/v2/events.json?size=20&keyword=${this.searchQuery}&page=${this.page}&apikey=${API_KEY}`;
+        const url = `${BASE_URL}/discovery/v2/events.json?size=20&page=${this.page}&apikey=${API_KEY}`;
         console.log(url);
         const rawResult = await fetch(url);
         if (!rawResult.ok) {

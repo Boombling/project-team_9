@@ -1,9 +1,9 @@
-import EventsApiService from './apiStartPages.js';
+import EventsApiService from './services.js';
 const cardEvent = document.querySelector('.gallery');
 const eventsApiService = new EventsApiService();
 import eventsListTpl from '../../templates/card-list.hbs';
-import createsDownloadList from './new-render-list.js';
-import getPage from './get-page.js';
+import createsDownloadList from '../services/new-render-list';
+//import getPage from './get-page.js';
 
 function onSearch() {
     try {
@@ -24,9 +24,14 @@ function renderEventList(list) {
 
 
 async function fetchRefs() {
-    const { _embedded } = await eventsApiService.fetchEvent();
-    const list = _embedded.events;
+    if (window.screen.availWidth >= 768 && window.screen.availWidth < 1280) {
+        eventsApiService.changeSize(21);
+    } else {
+        eventsApiService.changeSize(20);
+    }
+
+    const list = await eventsApiService.fetchEvent({});
     const newFetchEventList = createsDownloadList(list);
     renderEventList(newFetchEventList);
-    getPage(eventsApiService);
+    //getPage(eventsApiService, '', true);
 }
