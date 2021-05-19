@@ -1,5 +1,5 @@
 import './services/start-page';
-import createsDownloadList from './services/nev-render-list';
+import createsDownloadList from './services/new-render-list';
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
