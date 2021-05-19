@@ -1,5 +1,4 @@
 import modalTpl from '../../templates/modalTpl.hbs';
-import createsDownloadModalList from '../components/apiModal';
 // import EventApi from '../services/event-api';
 
 // const eventApi = new EventApi();
@@ -17,9 +16,8 @@ async function fetchEvent(id) {
     return response;
 }
 
-function renderE(events) {    
-  const modalList = createsDownloadModalList(events);     
-  const event = modalTpl(modalList);
+function renderE(events) {         
+  const event = modalTpl(events);
     refs.renderModal.innerHTML = event;
 }
 
