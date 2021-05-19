@@ -30,20 +30,31 @@
   color: #dc56c5;
 }
 
-.search {
+.search-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.search-form {
   display: block;
+  position: relative;
+  max-width: 270px;
+  margin-top: 25px;
+  margin-left: 0;
+  margin-right: 30 px; 
+}
+
+.search {
+  
+  display: block;;
   width: 210px;
   height: 20px;
-  margin-top: 25px;
+  /* margin-top: 25px; */
   padding: 10px 30px;
-  margin-left: auto;
-  margin-right: auto;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
-  background-image: url('../images/search.png');
-  background-position-x: 225px;
-  background-position-y: 50%;
-  background-repeat: no-repeat;
+ 
   border-radius: 20px;
   border: none;
   font-family: Montserrat;
@@ -54,6 +65,26 @@
 
   color: #939393;
 }
+
+.search-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+
+  position: absolute;
+  top: 30%;
+  right: 20px;
+
+  outline: none;
+  border: none;
+ 
+  background-image: url('../images/search.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
 
 .search_country_active {
   background-image: url('../images/polygon-2.png');
@@ -66,8 +97,8 @@
 
   margin-top: 25px;
   padding: 10px 30px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   background-image: url('../images/polygon-1.png');
@@ -194,17 +225,25 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
   }
-
-  .search,
+  
+  .search-form,
   .dropdown {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 27px;
   }
 
-  .search {
+  .search-form {
     margin-right: 30px;
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 30%;
+    right: 30px;
   }
 
   .header_logo {
@@ -230,10 +269,18 @@
     line-height: 61px;
   }
 
-  .search,
+  .search-form,
   .dropdown {
     margin-top: 52px;
   }
+
+  .search-icon {
+     
+    position: absolute;
+    top: 30%;
+    right: 30px;
+  }
+
 
   .header_logo {
     background-image: url(../images/bg-logo-desctop.png);
