@@ -1,5 +1,5 @@
 const API_KEY = 'MMQ2M3AOTcNvFmVoIxNGUGotXqF5t9MP';
-const BASE_URL = 'https://newsuperserver.herokuapp.com/https://app.ticketmaster.com';
+const BASE_URL = 'https://app.ticketmaster.com';
 
 export default class EventsApiService {
     constructor() {
