@@ -1,7 +1,5 @@
 import './styles.css';
 import './js/main.js';
-import './js/components/preloader';
-// import './js/services/choose-country';
-// import './js/components/animationbg';
-import './js/components/animcards';
-import './js/components/animationbg';
+import './js/utils/preloader';
+import './js/utils/animation-logo';
+import './js/utils/animation-bg';

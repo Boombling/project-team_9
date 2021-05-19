@@ -8,7 +8,7 @@
       rgba(13, 13, 13, 0) 0%,
       rgba(14, 14, 14, 0.8) 100%
     ),
-    url('../images/hero_mobile.jpg');
+    url('../../images/hero_mobile.jpg');
 
   margin-right: auto;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@
 .search-div {
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
 
 .search-form {
@@ -42,19 +42,18 @@
   max-width: 270px;
   margin-top: 25px;
   margin-left: 0;
-  margin-right: 30 px; 
+  margin-right: 30 px;
 }
 
 .search {
-  
-  display: block;;
+  display: block;
   width: 210px;
   height: 20px;
   /* margin-top: 25px; */
   padding: 10px 30px;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
- 
+
   border-radius: 20px;
   border: none;
   font-family: Montserrat;
@@ -78,16 +77,16 @@
 
   outline: none;
   border: none;
- 
-  background-image: url('../images/search.png');
+
+  background-image: url('../../images/search.png');
   background-position: center;
   background-repeat: no-repeat;
   background-color: transparent;
+  cursor: pointer;
 }
 
-
 .search_country_active {
-  background-image: url('../images/polygon-2.png');
+  background-image: url('../../images/polygon-2.png');
 }
 
 .dropdown {
@@ -101,7 +100,7 @@
   margin-right: 0;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
-  background-image: url('../images/polygon-1.png');
+  background-image: url('../../images/polygon-1.png');
   background-position-x: 228px;
   background-position-y: 50%;
   background-repeat: no-repeat;
@@ -172,8 +171,8 @@
 .dropdown:hover {
   height: 210px;
 
-  background-image: url('../images/polygon-2.png'),
-    url('../images/line-search.png');
+  background-image: url('../../images/polygon-2.png'),
+    url('../../images/line-search.png');
   background-position-y: 15px, 40px;
   background-position-x: 228px, 23px;
 }
@@ -199,7 +198,7 @@
   left: 0;
   z-index: 1;
   display: inline-block;
-  background-image: url(../images/bg-logo-mobile.png);
+  background-image: url(../../images/bg-logo-mobile.png);
   width: 107px;
   height: 90px;
   background-repeat: no-repeat;
@@ -212,7 +211,7 @@
         rgba(13, 13, 13, 0) 0%,
         rgba(14, 14, 14, 0.8) 100%
       ),
-      url('../images/hero_tablet.jpg');
+      url('../../images/hero_tablet.jpg');
   }
 
   .heder_title {
@@ -228,7 +227,7 @@
     flex-direction: row;
     align-items: flex-start;
   }
-  
+
   .search-form,
   .dropdown {
     margin-left: 0px;
@@ -247,7 +246,7 @@
   }
 
   .header_logo {
-    background-image: url(../images/bg-logo-tablet.png);
+    background-image: url(../../images/bg-logo-tablet.png);
     width: 180px;
     height: 151px;
   }
@@ -260,7 +259,7 @@
         rgba(13, 13, 13, 0.19) 0%,
         rgba(14, 14, 14, 0.8) 100%
       ),
-      url('../images/hero_desktop.jpg');
+      url('../../images/hero_desktop.jpg');
   }
 
   .heder_title {
@@ -275,15 +274,13 @@
   }
 
   .search-icon {
-     
     position: absolute;
     top: 30%;
     right: 30px;
   }
 
-
   .header_logo {
-    background-image: url(../images/bg-logo-desctop.png);
+    background-image: url(../../images/bg-logo-desctop.png);
     width: 239px;
     height: 201px;
   }

@@ -1,5 +1,5 @@
-import modalTpl from '../../templates/modalTpl.hbs';
-import createsDownloadModalList from '../components/apiModal';
+import modalTpl from '../../templates/modal-list.hbs';
+import createsDownloadModalList from '../utils/img-modal-api';
 // import EventApi from '../services/event-api';
 
 // const eventApi = new EventApi();

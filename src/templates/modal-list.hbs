@@ -18,7 +18,7 @@
       </li>
       <li class="modal-item">
         <p class="modal-item__header">WHEN</p>
-        <p class="modal-item__descr">{{events.dates.start.localDate}}<br>{{events.dates.start.localTime}} ({{dates.timezone}})</p>
+        <p class="modal-item__descr">{{events.dates.start.localDate}}<br>{{events.dates.start.localTime}} ({{events.dates.timezone}})</p>
       </li>
       <li class="modal-item">
         <p class="modal-item__header">WHERE</p>
@@ -37,7 +37,7 @@
                         0h-7.291V30.73h7.291V1.269zm-34.371 0h-2.38V30.73h2.38V1.269zm19.641 0h-2.38V30.73h2.38V1.269zm4.91
                         0h-2.38V30.73h2.382V1.269z" fill="#0E0E0E" />
           </svg>
-          <p class="modal-item__descr price-descr">Standart 300-500 UAH</p>
+          <p class="modal-item__descr price-descr">Standart {{events.priceRanges.[0].min}}{{events.priceRanges.[0].currency}}</p>
         </div>
         <button class="modal-btn" type="button">BUY TICKETS</button>
         <div class="price">
@@ -46,7 +46,7 @@
                   0h-7.291V30.73h7.291V1.269zm-34.371 0h-2.38V30.73h2.38V1.269zm19.641 0h-2.38V30.73h2.38V1.269zm4.91 
                   0h-2.38V30.73h2.382V1.269z" fill="#0E0E0E" />
           </svg>
-          <p class="modal-item__descr price-descr">VIP 1000-1500 UAH</p>
+          <p class="modal-item__descr price-descr">VIP {{events.priceRanges.[0].max}}{{events.priceRanges.[0].currency}}</p>
         </div>
         <button class="modal-btn" type="button">BUY TICKETS</button>
       </li>

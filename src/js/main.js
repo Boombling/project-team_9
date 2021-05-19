@@ -1,12 +1,12 @@
-import './services/start-page';
-import createsDownloadList from './services/new-render-list';
+import './components/start-page';
+import createsDownloadList from './utils/img-render-list';
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
 import './components/modal';
 
-import './services/choose-country';
-import { showAlert, showError } from './components/pnotify';
+import './services/choose-country-api';
+import { showAlert, showError } from './utils/pnotify';
 
 
 import startMarkUp from '../templates/pagination/startPagination.hbs';

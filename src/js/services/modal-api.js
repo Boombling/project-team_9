@@ -18,7 +18,7 @@ export default class eventApi {
     get query() {
         return this.id;
     }
-    set guery(newQuery) {
+    set query(newQuery) {
         this.id = newQuery;
     }
 }
