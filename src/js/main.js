@@ -1,4 +1,5 @@
 import './components/start-page';
+import './components/search-of-name';
 import createsDownloadList from './utils/img-render-list';
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';

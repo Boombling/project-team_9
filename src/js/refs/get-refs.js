@@ -4,5 +4,8 @@ export default function getRefs() {
         searchInput: document.querySelector('.search-form'),
         button: document.querySelector('.counry_link'),
         pagination: document.querySelector('.pagination'),
-    };
+        backdrop: document.querySelector("[data-backdrop]"),
+        body: document.querySelector('body'),
+        butnModal: document.querySelector('.modal')
+}
 }
