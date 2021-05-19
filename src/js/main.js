@@ -1,5 +1,5 @@
 import './services/start-page';
-import createsDownloadList from './services/nev-render-list';
+import createsDownloadList from './services/new-render-list';
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
@@ -57,13 +57,17 @@ async function onSearch(e) {
 
         const events = await eventsApiService.fetchEvent({})
         console.log(events);
-
-        if (events.length === 0) {
+        if (events.query === '') {
+            return showAlert('Specify your request')
+         }
+        if(!events.length) {
             //   тут треба вивести помилку пошуку
-
-            return fetchError(error)
+            return showError('no results were found for this request')
         }
+        
 
+      
+        
         //  await renderEventList(events)
         const newFetchEventList = createsDownloadList(events);
         await renderEventList(newFetchEventList);
@@ -71,9 +75,9 @@ async function onSearch(e) {
 
         //getPage(eventsApiService, eventsApiService.query, false)
 
-    } catch (err) {
-        // console.log(err);
-        //   тут треба вивести помилку запиту fetch
+    } catch (err) {        
+        fetchError()
+        // showAlert('Specify your request')
     }
 
 }
@@ -82,7 +86,7 @@ async function onSearch(e) {
 // додав, щоб перевырити роботу пошуку, хто відповідає за цей функціонал замінете...
 function renderEventList(events) {
     eventsMarkup(events)
-
+    
 }
 
 function eventsMarkup(events) {
@@ -94,19 +98,9 @@ function clearEvents() {
 }
 
 function fetchError(error) {
+    
     showError('no results were found for this request')
 }
-
-// if  (.................) {
-//            return showAlert('displaying the result of your request');
-//             }
-
-
-
-
-
-
-
 
 function targetCheck(targetNumber) {
     if (pageControlBody.lastNumber < 8) {
@@ -171,21 +165,10 @@ function resultChecking(result) {
         result = Math.floor(result / 20);
     }
 
-
-
-
-
-
-
-
     //console.log(result)
     return result;
 
 }
-
-
-
-
 
 function onClick(event) {
 
@@ -213,12 +196,7 @@ function onClick(event) {
 
     nextEvents(pageControlBody.currentNumber);
 
-
-
 }
-
-
-
 
 async function onStart() {
     try {

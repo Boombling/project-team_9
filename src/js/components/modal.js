@@ -1,4 +1,5 @@
 import modalTpl from '../../templates/modalTpl.hbs';
+import createsDownloadModalList from '../components/apiModal';
 // import EventApi from '../services/event-api';
 
 // const eventApi = new EventApi();
@@ -12,12 +13,12 @@ async function fetchEvent(id) {
         throw event;
         }
     const response = await event.json();
-    console.log(response);
     return response;
 }
 
-function renderE(events) {         
-  const event = modalTpl(events);
+function renderE(events) {    
+  const modalList = createsDownloadModalList(events);     
+  const event = modalTpl(modalList);
     refs.renderModal.innerHTML = event;
 }
 
@@ -42,16 +43,27 @@ function onOpenModal(event) {
   event.preventDefault();
     
   if (event.target.nodeName === 'IMG') {
+
     const resolv = event.target;
     const resolvById = resolv.getAttribute("alt");
-    fetchEvent(resolvById)
-    .then(renderE)
-    .catch(onFetchError);
-    refs.backdrop.classList.remove("backdrop--hiden");
-    refs.body.classList.add('body-scroll-stop'); //стопорим скрол контента под модалкой
-    window.addEventListener('keydown', onKeysPress); //- слушаем нажатие клавиш
+    onFetchModal(resolvById)
   }
+  if(event.target.classList.contains("list_decor")){
+  const resolv = event.target;
+  const resolvById = resolv.getAttribute("id");
+  onFetchModal(resolvById)
+
+}
   return
+}
+
+function onFetchModal(resolvById) {
+  fetchEvent(resolvById)
+  .then(renderE)
+  .catch(onFetchError);
+  refs.backdrop.classList.remove("backdrop--hiden");
+  refs.body.classList.add('body-scroll-stop'); //стопорим скрол контента под модалкой
+  window.addEventListener('keydown', onKeysPress); //- слушаем нажатие клавиш
 }
 
 function onCloseModal(event) {
@@ -68,7 +80,6 @@ function logBackdropClick(evt) {
 }
 
 function onKeysPress(evt) {
-  console.log(evt.code)
   if(!refs.backdrop.classList.contains('backdrop--hiden')){
     if (evt.code === 'Escape') {
       onCloseModal(); 
