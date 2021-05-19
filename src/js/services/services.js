@@ -41,7 +41,7 @@ export default class EventsApiService {
         }
 
         const result = await rawResult.json();
-        console.log(result);
+        // console.log(result);
 
         // зразу повертаємо масив pages
         return result.page.totalElements;

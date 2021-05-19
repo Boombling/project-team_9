@@ -1,6 +1,6 @@
 import modalTpl from '../../templates/modal-list.hbs';
 import createsDownloadModalList from '../utils/img-modal-api';
-// import EventApi from '../services/event-api';
+// import EventApi from '../services/modal-api';
 
 // const eventApi = new EventApi();
 // console.log(eventApi);
@@ -54,7 +54,7 @@ function onOpenModal(event) {
   onFetchModal(resolvById)
 
 }
-  return
+  // return
 }
 
 function onFetchModal(resolvById) {

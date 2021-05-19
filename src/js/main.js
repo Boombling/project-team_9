@@ -57,7 +57,7 @@ async function onSearch(e) {
         await clearEvents();
 
         const events = await eventsApiService.fetchEvent({})
-        console.log(events);
+        // console.log(events);
         if (events.query === '') {
             return showAlert('Specify your request')
          }
@@ -210,7 +210,7 @@ async function onStart() {
         pageControlBody.updateLastPage(pageNum);
 
         pageControlBody.createPaginationBlock();
-        console.log(pageNum)
+        // console.log(pageNum)
 
     } catch (err) {
         console.log(err);
