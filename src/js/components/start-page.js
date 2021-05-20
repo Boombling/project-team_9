@@ -1,8 +1,10 @@
 import EventsApiService from '../services/services.js';
-const cardEvent = document.querySelector('.gallery');
 const eventsApiService = new EventsApiService();
 import eventsListTpl from '../../templates/card-list.hbs';
 import createsDownloadList from '../utils/img-render-list';
+import getRefs from '../refs/get-refs';
+
+const refs = getRefs();
 //import getPage from './get-page.js';
 
 function onSearch() {
@@ -19,7 +21,7 @@ onSearch()
 
 function renderEventList(list) {
     const renderEventCard = eventsListTpl(list);
-    cardEvent.innerHTML = renderEventCard;
+    refs.cardEvent.innerHTML = renderEventCard;
 }
 
 
@@ -34,4 +36,11 @@ async function fetchRefs() {
     const newFetchEventList = createsDownloadList(list);
     renderEventList(newFetchEventList);
     //getPage(eventsApiService, '', true);
+}
+
+refs.logo.addEventListener ('click', openStartPages);
+
+function openStartPages() {
+
+    onSearch()
 }
