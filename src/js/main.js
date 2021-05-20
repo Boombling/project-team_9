@@ -191,7 +191,7 @@ function resultChecking(result) {
             result = Math.floor(result / 20);
         }
     } else {
-        result = 0;
+        result = 1;
     }
     //console.log(result)
     return result;
