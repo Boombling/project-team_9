@@ -1,12 +1,12 @@
 import './components/start-page';
-import './components/search-of-name';
+//import './components/search-of-name';
 import createsDownloadList from './utils/img-render-list';
 import EventsApiService from './services/services';
 import eventsListTpl from '../templates/card-list.hbs';
 import getRefs from './refs/get-refs';
 import './components/modal';
 
-import './services/choose-country-api';
+//import './services/choose-country-api';
 import { showAlert, showError } from './utils/pnotify';
 
 
@@ -23,11 +23,17 @@ const eventsApiService = new EventsApiService();
 const pageControlBody = new PageBlock();
 
 window.addEventListener('load', onStart);
-refs.pagination.addEventListener('click', onClick);
-
-
 refs.searchInput.addEventListener('submit', onSearch);
+refs.pagination.addEventListener('click', onClick);
+refs.butnModal.addEventListener('click', onSearch);
+refs.button.addEventListener('click', onSearch);
+
+
+
 refs.searchInput.addEventListener('submit', onStart);
+
+refs.butnModal.addEventListener('click', onStart);
+refs.button.addEventListener('click', onStart);
 
 //window.addEventListener('resize', checkScreen);
 
@@ -41,51 +47,78 @@ function checkScreen() {
 
 async function onSearch(e) {
 
+
     try {
         e.preventDefault();
         checkScreen();
+        refs.bubbling.classList.remove('is-hidden');
+        if (e.target.classList.contains('counry_link')) {
 
-        eventsApiService.query = e.currentTarget.elements.query.value;
+            const furtherCountrySearch = e.target;
+            const country = furtherCountrySearch.getAttribute("name");
+            eventsApiService.changeCountry(country);
+            eventsApiService.query = '';
 
-        if (eventsApiService.query === '' || !eventsApiService.query.trim()) {
-            //   тут треба вивести помилку пошуку
-            return fetchError(error);
+        } else {
+            eventsApiService.changeCountry('');
+            if (e.target.classList.contains("modal-btn")) {
+                eventsApiService.query = e.target.getAttribute("name");
+                refs.backdrop.classList.add("backdrop--hiden");
+                refs.body.classList.remove('body-scroll-stop');
+
+            } else {
+                eventsApiService.query = e.currentTarget.elements.query.value;
+            }
         }
+
+
+
+
         // await eventsApiService.resetPage();
         await eventsApiService.changePage(1);
 
         await clearEvents();
 
         const events = await eventsApiService.fetchEvent({})
-        // console.log(events);
+            // console.log(events);
         if (events.query === '') {
             return showAlert('Specify your request')
-         }
-        if(!events.length) {
+        }
+        if (!events.length) {
+            if (eventsApiService.country) {
+                return showError('no results coronavirus restriction')
+            }
             //   тут треба вивести помилку пошуку
             return showError('no results were found for this request')
         }
-        
 
-      
-        
+
+
+
         //  await renderEventList(events)
         const newFetchEventList = createsDownloadList(events);
         await renderEventList(newFetchEventList);
+        refs.bubbling.classList.add('is-hidden');
 
 
         //getPage(eventsApiService, eventsApiService.query, false)
 
-    } catch (err) {        
-        fetchError()
-        // showAlert('Specify your request')
+    } catch (err) {
+        if (eventsApiService.country) {
+            return showError('no results coronavirus restriction')
+        }
+        //   тут треба вивести помилку пошуку
+        return showError('no results were found for this request')
+            // showAlert('Specify your request')
     }
-
 }
+
+
+
 
 function renderEventList(events) {
     eventsMarkup(events)
-    
+
 }
 
 function eventsMarkup(events) {
@@ -97,7 +130,7 @@ function clearEvents() {
 }
 
 function fetchError(error) {
-    
+
     showError('no results were found for this request')
 }
 
@@ -123,50 +156,45 @@ async function nextEvents(page) {
     try {
 
         await clearEvents();
+        refs.bubbling.classList.remove('is-hidden');
         eventsApiService.changePage(page);
 
+        const events = await eventsApiService.fetchEvent({})
 
 
-        const events = await eventsApiService.fetchNextEvent({})
-
-
-        if (events.length === 0) {
-            //   тут треба вивести помилку пошуку
-            return
-        }
-
-        //  await renderEventList(events)
         const newFetchEventList = createsDownloadList(events);
-        //console.log(newFetchEventList)
+
         await renderEventList(newFetchEventList);
+        refs.bubbling.classList.add('is-hidden');
+
 
     } catch (err) {
-        // console.log(err);
-        //   тут треба вивести помилку запиту fetch
-
+        showError('sorry :( ... no result')
     }
 
 }
 
 function resultChecking(result) {
+    const TABLET_MAX_PAGE = 47;
+    const MAX_PAGE = 49;
+    if (result >= 1000) {
+        if (window.screen.availWidth >= 768 && window.screen.availWidth < 1280) {
+            result = TABLET_MAX_PAGE;
+        } else {
+            result = MAX_PAGE;
+        }
 
-    if (result > 1000) {
-        result = 1000;
-
-    } else if (result < 20) {
-        result = 1
-        return;
-    }
-
-    if (window.screen.availWidth >= 768 && window.screen.availWidth < 1280) {
-        result = Math.floor(result / 21);
+    } else if (result > 20) {
+        if (window.screen.availWidth >= 768 && window.screen.availWidth < 1280) {
+            result = Math.floor(result / 21);
+        } else {
+            result = Math.floor(result / 20);
+        }
     } else {
-        result = Math.floor(result / 20);
+        result = 0;
     }
-
     //console.log(result)
     return result;
-
 }
 
 function onClick(event) {
@@ -202,17 +230,17 @@ async function onStart() {
 
         checkScreen();
         refs.pagination.innerHTML = '';
-        const pageInfo = await eventsApiService.fetchPages();
-        if (!pageInfo) {
-            return
-        }
+
+
+        const pageInfo = await eventsApiService.fetchPages({});
+        //console.log(pageInfo);
         const pageNum = resultChecking(pageInfo);
         pageControlBody.updateLastPage(pageNum);
 
         pageControlBody.createPaginationBlock();
-        // console.log(pageNum)
+
 
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 }

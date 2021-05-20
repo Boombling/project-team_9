@@ -18,62 +18,73 @@
         <div class="overlay">
             <div class="head-container">
                 <div class="header_logo-div">
-                <div class="header_logo"></div>
+                    <div class="header_logo"></div>
                 </div>
                 <h1 class="heder_title">
                     FIND BEST EVENTS <br /> AROUND THE WORLD
                 </h1>
                 <div class="search-div">
-                    <form  class="search-form" id="search-form">
-                        <input class="search" type="text" placeholder="Start searching" name="query" autocomplete="off"/>
+                    <form class="search-form" id="search-form">
+                        <input class="search" type="text" placeholder="Start searching" name="query" autocomplete="off" />
                         <button class="search-icon" type="submit"></button>
                     </form>
                     <div class="dropdown">
                         <span class="defolt_value">Choose country</span>
                         <div class="dropdown-content">
                             <div class="counry">
-                                <p class="counry_list">
-                                    <button class="counry_link" name="CA">Canada</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="US">USA</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="PL">Poland</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="IL">Israel</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="DE">Deutschland</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="IE">Ireland</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="FR">France</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="JP">Japan</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="GT">Guatemala</button>
-                                </p>
-                                <p class="counry_list">
-                                    <button class="counry_link" name="TH">Taiwan</button>
-                                </p>
+                                <ul class="counry_list">
+
+                                    <li>
+                                        <button class="counry_link" name="CA">Canada</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="US">USA</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="PL">Poland</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="IL">Israel</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="DE">Deutschland</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="IE">Ireland</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="FR">France</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="JP">Japan</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="GT">Guatemala</button>
+                                    </li>
+                                    <li>
+                                        <button class="counry_link" name="TH">Taiwan</button>
+                                    </li>
+                                </ul>
                             </div>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <section class="concert-list">
+        <div class="bubblingG is-hidden">
+            <span id="bubblingG_1">
+            </span>
+            <span id="bubblingG_2">
+            </span>
+            <span id="bubblingG_3">
+            </span>
+        </div>
         <div class="concert-container">
-          <ul class="card-list js-list gallery">
-            <!-- Список <li> с карточками изображений -->
-          </ul>
+            <ul class="card-list js-list gallery">
+                <!-- Список <li> с карточками изображений -->
+            </ul>
         </div>
         <div class="pagination">
 
@@ -106,18 +117,18 @@
 
     <!-- MODAL  -->
 
-    <div class="backdrop backdrop--hiden" data-backdrop>     
-      <div class="modal-container">
-        <div class="modal">
-          <button data-close-modal type="button">
+    <div class="backdrop backdrop--hiden" data-backdrop>
+        <div class="modal-container">
+            <div class="modal">
+                <button data-close-modal type="button">
             <svg class="close-icon">
               <use href="./images/icon/symbol-defs.svg#icon-close"></use>
             </svg>
           </button>
-          <div class="js-modalTpl"></div>
-  
+                <div class="js-modalTpl"></div>
+
+            </div>
         </div>
-      </div>
     </div>
 
 </body>
