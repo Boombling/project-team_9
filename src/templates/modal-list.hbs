@@ -39,7 +39,7 @@
           </svg>
           <p class="modal-item__descr price-descr">Standart {{events.priceRanges.[0].min}}{{events.priceRanges.[0].currency}}</p>
         </div>
-        <button class="modal-btn" type="button">BUY TICKETS</button>
+        <a class="btn-js hvr-pulse-grow" target="_blank" href={{events.url}}>BUY TICKETS</a>
         <div class="price">
           <svg class="barcode" viewBox="0 0 44 32">
             <path d="M4.91 1.269H0V30.73h4.91V1.269zm12.35 0h-4.911V30.73h4.911V1.269zm7.439 0h-4.91V30.73h4.91V1.269zm19.491 
@@ -48,10 +48,10 @@
           </svg>
           <p class="modal-item__descr price-descr">VIP {{events.priceRanges.[0].max}}{{events.priceRanges.[0].currency}}</p>
         </div>
-        <button class="modal-btn" type="button">BUY TICKETS</button>
+        <a class="btn-js hvr-pulse-grow" target="_blank" href={{events.url}}>BUY TICKETS</a>
       </li>
     </ul>
   </div>
-    <button name='{{events.name}}' class="modal-btn btn-more" type="button">MORE FROM THIS AUTHOR</button>
+    <button name='{{events.name}}' class="modal-btn btn-more hvr-pulse-grow" type="button">MORE FROM THIS AUTHOR</button>
 
 </div>

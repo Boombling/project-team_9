@@ -145,7 +145,7 @@
   height: 16px;
 }
 
-.modal-btn {
+.modal-btn .btn-js {
   margin-bottom: 25px;
   width: 145px;
   height: 40px;
@@ -163,7 +163,8 @@
 }
 
 .modal-btn:hover,
-.modal-btn:focus {
+.modal-btn:focus .btn-js:focus,
+.btn-js:hover {
   background-color: #2196f3;
   outline: none;
   cursor: pointer;
@@ -185,6 +186,58 @@
 .btn-more:focus {
   border: 1px solid #dc56c5;
   background-color: #fff2fd;
+}
+
+.btn-js {
+  width: 145px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: none;
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #4c00fe;
+}
+.btn-js:hover,
+.btn-js:focus {
+  background-color: #2e009a;
+}
+
+@-webkit-keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+@keyframes hvr-pulse-grow {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+.hvr-pulse-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-pulse-grow:hover,
+.hvr-pulse-grow:focus,
+.hvr-pulse-grow:active {
+  -webkit-animation-name: hvr-pulse-grow;
+  animation-name: hvr-pulse-grow;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
 }
 
 /* breack point 320px */
@@ -369,11 +422,15 @@
     height: 19px;
   }
 
-  .modal-btn {
+  .modal-btn .btn-js {
     margin-bottom: 31px;
   }
 
   .btn-more {
     padding: 16px 10px;
+  }
+
+  .btn-js {
+    margin-top: 20px;
   }
 }
