@@ -20,7 +20,7 @@ async function fetchCountryCode(countryCode) {
 // рендер списку концертів відповідно до країни
 
 function renderCountriesList(events) {
-    
+    refs.renderPresentation.innerHTML = '';
     const newFetchEventList = createsDownloadList(events);
     
     const renderCard = eventsListTpl(newFetchEventList);

@@ -29,6 +29,7 @@ async function onSearch() {
 }
 
 function renderEventList(events) {
+    refs.renderPresentation.innerHTML = '';
     const newFetchEventList = createsDownloadList(events);
     refs.cardEvent.innerHTML = eventsListTpl(newFetchEventList);
     

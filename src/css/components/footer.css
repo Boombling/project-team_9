@@ -77,3 +77,11 @@
     width: 100%;
   }
 }
+
+.futer-btn {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  padding: 5px;
+  cursor: pointer;
+}
