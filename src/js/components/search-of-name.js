@@ -41,7 +41,6 @@ function fetchError(error) {
 
 function onSearchOfName(e){
  
-    e.preventDefault();
     if(e.target.classList.contains("modal-btn")){
      apiServise.query = e.target.getAttribute("name");
      refs.backdrop.classList.add("backdrop--hiden");
