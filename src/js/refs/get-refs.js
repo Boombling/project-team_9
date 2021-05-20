@@ -6,6 +6,7 @@ export default function getRefs() {
         pagination: document.querySelector('.pagination'),
         backdrop: document.querySelector("[data-backdrop]"),
         body: document.querySelector('body'),
-        butnModal: document.querySelector('.modal')
+        butnModal: document.querySelector('.modal'),
+        logo: document.querySelector('.header_logo-div')
 }
 }
