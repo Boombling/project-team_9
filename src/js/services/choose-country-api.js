@@ -21,6 +21,7 @@ async function fetchCountryCode(countryCode) {
 
 function renderCountriesList(events) {
 
+    refs.renderPresentation.innerHTML = '';
     const newFetchEventList = createsDownloadList(events);
 
     const renderCard = eventsListTpl(newFetchEventList);

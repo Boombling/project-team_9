@@ -31,6 +31,7 @@ async function onSearch() {
 }
 
 function renderEventList(events) {
+    refs.renderPresentation.innerHTML = '';
     const newFetchEventList = createsDownloadList(events);
     refs.cardEvent.innerHTML = eventsListTpl(newFetchEventList);
 
@@ -40,7 +41,6 @@ function fetchError(error) {
 
     showError('no results were found for this request')
 }
-
 function onSearchOfName(e) {
 
     e.preventDefault();
