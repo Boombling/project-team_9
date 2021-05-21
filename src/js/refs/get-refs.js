@@ -7,6 +7,8 @@ export default function getRefs() {
         backdrop: document.querySelector("[data-backdrop]"),
         body: document.querySelector('body'),
         butnModal: document.querySelector('.modal'),
-        logo: document.querySelector('.header_logo-div')
+        logo: document.querySelector('.header_logo-div'),
+        renderPresentation: document.querySelector(".presentation"),
+        futerClick: document.querySelector(".futer-btn"),
 }
 }

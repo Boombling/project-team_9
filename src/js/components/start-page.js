@@ -32,6 +32,7 @@ async function fetchRefs() {
         eventsApiService.changeSize(20);
     }
 
+    refs.renderPresentation.innerHTML = '';
     const list = await eventsApiService.fetchEvent({});
     const newFetchEventList = createsDownloadList(list);
     renderEventList(newFetchEventList);
